@@ -1,0 +1,113 @@
+---
+title: "Homework 5"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+author: "Jacob Jashinsky"
+class: "461"
+section: "01"
+hours: "1 Hours"
+professor: "Bro Chilton"
+due: "10/12/2018"
+topic: "3.2.2abcd, 3.2.3abcd"
+misc: "3.2.4ab"
+title-page: no
+output: HomeworkBYUI::homework_pdf
+---
+# Problem 3.2.2
+
+Let 
+
+$$
+A = \left\{ (-1)^n + \frac{2}{n} : n = 1,2,3,... \right\} \ \text{and} \ B = \{ x \in \mathbb{Q}: 0 < x < 1 \}
+$$
+Answer the following questions for each set:
+
+a) what are the limit points?
+
+\begin{solution}
+The limits of set $A$ are $\{-1,1\}$. \\
+
+The limits of set $B$ are $[0,1]$. 
+\end{solution}
+
+
+b) Is the set open? Closed?
+
+\begin{solution}
+Set $A$ is not closed because it does not contain all of its limit points. It is also not open because it is possible to find a neighborhood around a point within $A$ that is not a subset of $A$. \\
+
+Set $B$ is not closed because it does not contain its limit points. It is also not open because no neighborhood around a point within $B$ is a subset of $B$ because the neighborhood contains irrational numbers.  
+\end{solution}
+
+c) Does the set contain any isolated points?
+
+\begin{solution}
+Set $A$ does and set $B$ does not.
+\end{solution}
+
+d) Find the closure of the set.
+
+\begin{solution}
+$\bar{A} = \left\{ (-1)^n + \frac{2}{n} : n = 1,2,3,... \right\} \cup \{-1,1 \}$  \\
+
+$\bar{B} = [0,1]$
+\end{solution}
+
+
+\newpage 
+
+
+# Problem 3.2.2
+
+Decide whether the following sets are open, closed, or neither. If the set is not open, find a point in the set for which there is no $\epsilon$-neighborhood contained in the set. If a set is not closed, find a limit point that is not contained in the set.
+
+a) $\mathbb{Q}$
+
+\begin{solution}
+It is not open or closed
+
+$1/2 \in \mathbb{Q}$, however, any neighborhood around $1/2$ would contain irrational numbers which would make it not a subset of $\mathbb{Q}$
+
+$\sqrt{2}$ is a limit point but $\sqrt{2} \notin \mathbb{Q}$. 
+\end{solution}
+
+
+b) $\mathbb{N}$
+
+\begin{solution}
+It is closed but not open. $1 \in \mathbb{N}$ but $V_{1/2}(1) \nsubseteq \mathbb{N}$.
+\end{solution}
+
+
+c) $\{ x \in \mathbb{R}: x \ne 0 \}$
+
+\begin{solution}
+The set is not closed because it doesn't contain all of its limit point which 0 is included as a limit point.
+\end{solution}
+
+
+d) $\{ 1 + 1/4 + 1/9 + ...+ 1/n^2 : n \in \mathbb{N} \}$
+
+\begin{solution}
+The set is not closed because 0 is a limit point but it is not included in the set. It is not open because I can find a nieghborhood around 1/4 that is not a subset of the set.
+\end{solution}
+
+\newpage
+
+# Problem 3.2.4
+
+
+Let $A$ be nonempty and bounded above so that $s = \sup A$ exists. 
+
+a) Show that $s \in \bar{A}$.
+
+\begin{solution}
+For $s \in \bar{A}$ then it must be either in the closure of $A$, in $A$ or both. Since $s = \sup A$ then any element less than than $s$ is inside the set $A$. 
+
+Therefore every neighborhood of $s$ will intersect the set $A$, meaning that it is a limit point. Thus $s \in \bar{A}$.      
+\end{solution}
+
+b) Can an open set contains its supremum?
+
+\begin{solution}
+No. Any element greater than the supremum is an upper bound of the set, meaning that it is outside of the set. Therefore, any neighborhood around the supremum will not be a subset of the set because it will contain upper bounds. 
+\end{solution}

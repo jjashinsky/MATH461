@@ -1,0 +1,281 @@
+---
+title: "Homework 02"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+author: "Jacob Jashinsky"
+class: "M461 "
+section: "01"
+hours: "6.5 Hours"
+due: "Sept 28, 2018"
+topic: "1.4.1, 1.4.8 1.5.4a,"
+misc: "2.2.2ab, 2.2.3, 2.2.4, 2.2.6"
+title-page: no
+output: HomeworkBYUI::homework_pdf
+---
+# Problem 1.4.1
+
+a) Show that if $a,b \in \mathbb{Q}$, then $ab$ and $a+b$ are elements of $\mathbb{Q}$ as well.
+
+\begin{solution}
+Let $a = m/n$ and $b = r/q$, where $m,n,r,q \in \mathbb{Z}$ and $n,q \ne 0$, thus making $a$ and $b$ rational numbers.
+
+First I will prove that $ab \in \mathbb{Q}$
+
+$$
+\begin{aligned}
+ab &= \frac{m}{n} \cdot \frac{r}{q} \\
+&=\frac{mr}{nq}
+\end{aligned}
+$$
+We know that $mr, nq \in \mathbb{Z}$ because integers are closed under multiplication. Thus, $\frac{mr}{nq}$ is a fraction of two integers, making $ab \in \mathbb{Q}$.
+
+
+Next I will prove that $a+b \in \mathbb{Q}$.
+
+$$
+\begin{aligned}
+a+b &= \frac{m}{n} + \frac{r}{q} \\
+&=\frac{mq + rn}{nq}
+\end{aligned}
+$$
+We know that $mq, rn, nq \in \mathbb{Z}$ because integers are closed under addition and multiplication. Thus, $\frac{mq + rn}{nq}$ is a fraction of two integers, making $a+b \in \mathbb{Q}$.
+\end{solution}
+
+\pagebreak
+
+b) Show that if $a \in \mathbb{Q}$ and $t \in \mathbb{I}$, then $a+t \in \mathbb{I}$ and $at \in \mathbb{I}$ as long as $a \ne 0$.
+
+\begin{solution}
+We will prove this by contradiction.
+
+First will assume that $a+t \in \mathbb{Q}$. Because of part a) I know that a rational sum can be expressed two rational numbers.
+
+$$
+\begin{aligned}
+a + t = \frac{q}{p} \\
+\frac{m}{n} + t = \frac{q}{p} \\
+t = \frac{q}{p} + \left( -\frac{n}{m} \right)
+\end{aligned}
+$$
+This shows that $t$ is the sum of two rational numbers which is also rational number, therefore I have a contradiction.  
+
+
+It will be the same process for $at$. I assume that $at \in \mathbb{Q}$. So the product can be expressed as a rational number.
+
+$$
+\begin{aligned}
+at = \frac{q}{p} \\
+\frac{m}{n}t = \frac{q}{p} \\
+t = \frac{nq}{mp}
+\end{aligned}
+$$
+This leads to a contradiction because $t$ now appears to be rational number. 
+\end{solution}
+
+
+c) Is $\mathbb{I}$ closed under addition and multiplication? Give two irrational numbers $s$ and $t$, what can we say about $s+t$ and $st$?
+
+\begin{solution}
+Irrational numbers are closed under addition. Let $s = t = \sqrt{2}$. 
+
+$s + t = \sqrt{2} + \sqrt{2} = 2\sqrt{2}$, which is still irrational. However if we look at $st$.
+
+$st = (\sqrt{2})(\sqrt{2}) = (\sqrt{2})^2 = 2$, which is an integer.
+\end{solution}
+
+\pagebreak
+
+# Problem 1.4.8
+
+Give an example of each or state that the request is impossible. When a request is impossible, provide a compelling argument for why this is the case.
+
+a) Two sets $A$ and $B$ with $A \cap B = \varnothing$, $\sup A = \sup B$, $\sup A \notin A$ and $\sup B \notin B$. 
+
+\begin{solution}
+$$
+A = \{ 1-\frac{1}{(n+1)^2-1} \ | \ n \in \mathbb{N} \}
+$$
+
+and 
+
+$$
+B = \{1-\frac{1}{(n+1)^2+1} \ | \  n \in \mathbb{N} \}
+$$
+\end{solution}
+
+b) A sequence of nested open intervals $J_1 \supseteq J_2 \supseteq J_3 \supseteq . . .$ with $\bigcap^\infty_{n=1} J_n$ nonempty but containing only a finite number of elements. 
+
+\begin{solution}
+Let  $J_n = \left( \frac{-1}{2n}, \frac{1}{2n} \right)$, where $n \in \mathbb{N}$.
+
+This means that as $n$ approaches infinity the interval will get smaller and smaller. The only real number that is within every set is 0. Thus the intersection is finite. 
+\end{solution}
+
+c) A sequence of nested and unbounded closed intervals $L_1 \supseteq L_2 \supseteq L_3 \supseteq . . .$ with $\bigcap^\infty_{n=1} L_n = \varnothing$.
+
+\begin{solution}
+Let $L_n = \{ (n, \infty ) \ | \ n \in \mathbb{N} \}$
+
+The intersection is empty because you can always find an interval that will exclude the number you claim is in the intersection. 
+\end{solution}
+
+d) A sequence of closed bounded (not necessarily nested) intervals $I_a,I_2,I_3,...$ with the property that $\bigcap^N_{n=1} I_n \ne \varnothing$ for all $N \in \mathbb{N}$, but $\bigcap^\infty_{n=1} I_n = \varnothing$.
+
+\begin{solution}
+This is impossible. If $\bigcap^\infty_{n=1} I_n = \varnothing$ is true, then we know that there exists at least two sets where the intersection is empty, $I_k \cap I_m = \varnothing.$ 
+
+However, since $k,m < N \in \mathbb{N}$ then these two sets are part of a finite family of set. Thus $\bigcap^N_{n=1} I_n \ne \varnothing$ is false.
+\end{solution}
+
+\pagebreak
+
+# Problem 1.5.4a
+
+a) Show $(a,b) \sim \mathbb{R}$ for any interval $(a,b)$.
+
+\begin{solution}
+https://math.stackexchange.com/questions/1434479/prove-any-open-interval-has-the-same-cardinality-of-bbb-r-without-using-tri \\
+The equation was taken from this website above, and I take no credit for its creation.
+\\
+
+If I let $f(x) = \ln \left( \frac{1}{x-a} - \frac{1}{b-a} \right)$, where the domain is the open interval $(a,b)$. Then we can see that the domain maps to all of $\mathbb{R}$.
+
+$$
+\lim_{x \to a} \ln \left( \frac{1}{x-a} - \frac{1}{b-a} \right) = \infty
+$$
+and
+
+$$
+\lim_{x \to b} \ln \left( \frac{1}{x-a} - \frac{1}{b-a} \right) = -\infty
+$$
+Because $f(x)$ is also function that is one-to-one and is onto we know by definition 1.5.2, that $(a,b)$ has the same cardinality as $\mathbb{R}$.  
+\end{solution}
+
+\pagebreak
+
+# Problem 2.2.2ab
+
+Verify, using the definition of convergence of a sequence, that the following sequences converge to the proposed limit.
+
+a) $\lim \frac{2n+1}{5n+4} = \frac{2}{5}$
+
+\begin{solution}
+Before I begin a formal proof I will first find an $N$ in relation to $\epsilon$.
+
+$$
+\begin{aligned}
+\lvert \ \frac{2N+1}{5N+4} - \frac{2}{5} \rvert &<  \lvert \epsilon \rvert  \\
+\lvert \ \frac{10N + 5 -10N - 8}{5(5N+4)} \rvert &<  \lvert \epsilon \rvert  \\
+\lvert \ \frac{-3}{5(5N+4)} \rvert &<  \lvert \epsilon \rvert                \\
+\lvert \ \frac{1}{5N+4} \rvert &<  \lvert \frac{5 \epsilon}{-3} \rvert                \\
+\lvert \ 5N+4 \rvert &>  \lvert \frac{-3}{5 \epsilon} \rvert             \\
+N > \frac{3}{25 \epsilon} -4/5
+\end{aligned}
+$$
+
+I will show that any $n > N > \frac{3}{25 \epsilon} -4/5$ implies $| \frac{2N+1}{5N+4} - \frac{2}{5}| <|\epsilon|$. 
+
+$$
+\begin{aligned}
+n &> \frac{3}{25 \epsilon} -\frac{4}{5}   \\
+\frac{25}{3} \left( n + \frac{4}{5} \right) &> \frac{1}{\epsilon} \\
+\frac{3}{25} \left( \frac{5}{5n +4} \right) &< \epsilon \\
+\frac{3}{5(5n + 4)} &< \epsilon \\
+\frac{3}{5(5n + 4)} &< \epsilon  \\
+|\frac{10n -10n + 5 -8 }{5(5n + 4)}| &< |\epsilon|  \\
+|\frac{10n + 5}{5(5n + 4)} + \frac{-10n -8}{5(5n + 4)}| &< \epsilon \\
+|\frac{5n + 1}{(5n + 4)} - \frac{2}{5}| &< \epsilon
+\end{aligned}
+$$
+\end{solution}
+
+b) $\lim \frac{2n^2}{n^3+3} = 0$
+
+\pagebreak
+
+
+# Problem 2.2.3
+
+Describe what we would have to demonstrate in order to disprove each of the following statements.
+
+a) At every college in the United States, there is a student who is at least seven feet tall.
+
+\begin{solution}
+Find one college that does not have any students over seven feet tall. 
+\end{solution}
+
+b) For all colleges in the United States, there exists a professor who gives every student a grade of either A or B. 
+
+\begin{solution}
+Find one college where every professor does not give every student either an A or B. 
+\end{solution}
+
+c) There exists a college in the US where every student is at least six feet tall. 
+
+\begin{solution}
+Show that every college in the US has a student who's height is under 6 feet. 
+\end{solution}
+
+
+# Problem 2.2.4
+
+Give an example of each or state that the request is impossible. for any that are impossible give a compelling argument for why that is the case. 
+
+a) A sequence with an infinite number of ones that does not converge to one. 
+
+\begin{solution}
+$$
+s(n) = (-1)^n = \{ -1,1,-1,1,... \} 
+$$
+\end{solution}
+
+
+b) A sequence with an infinite number of ones that converges to a limit not equal to one. 
+
+\begin{solution}
+It is impossible. You cannot have an infinite number of ones in a sequence yet get infinity close to the limit that does not equal 1.  
+\end{solution}
+
+c) A divergent sequence such that for every $n \in \mathbb{N}$ it is possible to find $n$ consecutive ones somewhere in the sequence. 
+
+\begin{solution}
+$$
+s(n)=\left\{
+\begin{array}{ll}
+      1 \ , \ \ \ n \le N  \\
+      n! \ , \  \ n > N
+\end{array} 
+\right.
+$$
+\end{solution}
+
+# Problem 2.2.6
+
+Prove Theorem 2.2.7. The limit of a sequence, when it exists must be unique. 
+
+\begin{solution}
+First I assume that $\lim a_n = a$ and also that $\lim a_n = b$. Now I will show that $a=b$. \\
+
+I know that for any $\epsilon > 0$ there exists an $N_a \in \mathbb{N}$ implies $|a_n - a| < \epsilon / 2$.
+and that for any $\epsilon > 0$ there exists an $N_b \in \mathbb{N}$ implies $|a_n - b| < \epsilon / 2$.
+Since I claim that $a=b$, then it should be true that $|a-b| < \epsilon$.
+$$
+\begin{aligned}
+|a-b| &< \epsilon                 \\
+|a - a_n + a_n -b| &< \epsilon     \\
+| (a - a_n) + (a_n - b)| &< \epsilon
+\end{aligned}
+$$
+
+Now through the Triangle Inequality (1.2.5) and properties of absolute values I can express the previous inequality as the following,
+
+$$
+\begin{aligned}
+|a-b| = | (a - a_n) + (a_n - b)| < |a-a_n| + |a_n-b| &< \epsilon     \\
+|a-b| < |a-a_n| + |a_n-b| &< \epsilon/2 + \epsilon/2  = \epsilon     \\
+|a_n-a| + |a_n-b| &< \epsilon/2 + \epsilon/2 = \epsilon
+\end{aligned}
+$$
+
+Here I know that the last inequality is true because it was assumed to be true from the beginning. Therefore, $a=b$, and every limit is unique. 
+
+\end{solution}

@@ -1,0 +1,378 @@
+---
+title: "Homework 03"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+author: "Jacob Jashinsky"
+class: "MATH461 01"
+section: "01"
+hours: "7 Hours"
+due: "Oct 5, 2018"
+topic: "2.3.3, 2.3.6, 2.3.7"
+misc: "2.4.1, 2.4.3, 2.4.5, 2.5.1abc"
+title-page: no
+output: HomeworkBYUI::homework_pdf
+---
+# Problem 2.3.3
+
+Show that if $x_n \le y_n \le z_n$ for all $n \in \mathbb{N}$, and if $\lim x_n = \lim z_n = l$, then $\lim y_n = l$ as well. 
+
+\begin{solution}
+I will use theorem 2.3.4 part (ii), page 53: $if \ a_n \le b_n \ for \ all \ n\in \mathbb{N}, \ then \ a \le b$. \\
+
+
+Since I know that $y_n \le z_n$ for all $n \in \mathbb{N}$ and that $\lim z_n = l$ then I know that $\lim y_n \le l$. \\
+
+
+Similarly I know that $x_n \le y_n$ for all $n \in \mathbb{N}$ and that $\lim x_n = l$ then I know that $\lim y_n \ge l$. \\
+
+I can then say that $l \le \lim y_n \le l$. Therefore I know that $\lim y_n = l$. 
+\end{solution}
+
+# Problem 2.3.6
+
+Consider the sequence given by $b_n = n - \sqrt{n^2 +2n}$. Taking $(1/n) \to 0$ as given and using both the Algebraic Limit Theorem and the results in Exercise 2.3.1, show $\lim b_n$ exists and find the value of the limit. 
+
+\begin{solution}
+I will show that $\lim b_n$ exists by using the Algebraic Limit Theorem part (iii), where it states that if $\lim a_n = a$ and $\lim b_n = b$ then $\lim (a_n b_n) = ab$. \\
+
+I will multiply the limit by a factor of 1. 
+$$
+\begin{aligned}
+(n - \sqrt{n^2 +2n}) \cdot \frac{n + \sqrt{n^2 +2n}}{n + \sqrt{n^2 +2n}} \\
+\frac{n^2 - n^2 - 2n}{n + \sqrt{n^2 +2n}} \\
+\frac{- 2n}{n + \sqrt{n^2 +2n}}
+\end{aligned}
+$$
+Now I will multiply by a factor of 1 again.
+
+$$
+\begin{aligned}
+\frac{- 2n}{n + \sqrt{n^2 +2n}} \cdot \frac{1/n}{1/n} \\
+\frac{-2}{1+ \frac{\sqrt{n^2 + 2n}}{n}} \\
+\frac{-2}{1 + \sqrt{1+2/n}}  \\
+\end{aligned}
+$$
+Now I will take a limit of the previous statement
+$$
+\lim \frac{-2}{1 + \sqrt{1+2/n}} = \frac{-2}{1 + \sqrt{1}} = \frac{-2}{2} = -1
+$$
+\end{solution}
+
+\pagebreak
+
+# Problem 2.3.7
+
+Give an example of each of the following, or state that such a request is impossible by referencing the proper theorem(s):
+
+a) sequences $(x_n)$ and $(y_n)$, which both diverge, but whose sum $(x_n + y_n)$ converges. 
+
+\begin{solution}
+Let $(x_n) = n$ and $(y_n) = -n$. Both are diverging sequences and $(x_n + y_n) = n + (-n) = 0$, which is convergent. 
+\end{solution}
+
+b) sequences $(x_n)$ and $(y_n)$, where $(x_n)$ converges, $(y_n)$ diverges, and $(x_n + y_n)$ converges.
+
+\begin{solution}
+This is impossible because of of thm 2.3.2. Every convergent sequence is bounded, so $(x_n + y_n)$ must also be bounded however the sum of a bounded sequence and an unbounded sequence is unbounded. 
+\end{solution}
+
+c) convergent sequence $(b_n)$ with $b_n \ne 0$ for all $n$ such that $(1/b_n)$ diverges. 
+
+\begin{solution}
+Let $b_n = \frac{1}{n}$. It is easy to see that $b_n \ne 0$ for all $n$, but $1/b_n = \frac{1}{1/n} = n$, which is divergent.  
+\end{solution}
+
+d) an unbounded sequence $(a_n)$ and a convergent sequence $(b_n)$ with $(a_n - b_n)$ bounded.
+
+\begin{solution}
+It is impossible because of definition 2.3.1 and theorem 2.3.2
+\end{solution}
+
+e) two sequences $(a_n)$ and $(b_n)$, where $(a_n b_n)$ and $(a_n)$ converge but $(b_n)$ does not. 
+
+\begin{solution}
+Let $a_n = n$ and $b_n = 1/n^4$. We see that $a_n$ diverges but $b_n$ converges, however, $(a_n b_n) = n\frac{1}{n^4} = \frac{1}{n^3}$ is a converging sequence.  
+\end{solution}
+
+\pagebreak
+
+# Problem 2.4.1 
+
+a) Prove that the sequence defined by $x_1 = 3$ and 
+$$
+x_{x+1} = \frac{1}{4-x_n}
+$$
+converges.
+
+\begin{solution}
+I can use the monotone converges theorem to show that it converges. First I will prove that the sequence is monotone, or  in this case, strictly decreasing. \\
+
+Base Case:
+
+$x_1 = 3 < x_2 = 1$, therefore the statement is true for the first part of sequence. \\
+
+Induction hypothesis:
+
+I will show that $(x_k < x_{k+1}) \Rightarrow (x_{k+1} < x_{k+2})$.
+
+$$
+\begin{aligned}
+x_k &< x_{k+1} \\
+-x_k &> -x_{k+1} \\
+4-x_k &> 4-x_{k+1} \\
+\frac{1}{4-x_k} &< \frac{1}{4-x_{k+1}} \\
+x_{k+1} &< x_{k+2}
+\end{aligned}
+$$
+
+Therefore, by induction we see that $x_n$ is decreasing for all $n \in \mathbb{N}$ \\
+
+Now I will show that the sequence is bounded by 4 using induction. \\
+
+Base Case:
+
+$x_1 = 3 < 5$ \\
+
+Induction Hypothesis:
+
+I will show that $(x_k < 5) \Rightarrow (x_{k+1} < 5)$
+
+$$
+\begin{aligned}
+x_k &< 5 \\
+-x_k &> -5 \\
+4-x_k &> 4-5 \\
+\frac{1}{4-x_k} &< -1 \\
+x_{k+1} &< -1 < 5
+\end{aligned}
+$$
+
+Therefore the sequence is bounded for all $n \in \mathbb{N}$
+
+Because the sequence is bounded and monotone I have shown that the limit of the sequence exists.
+\end{solution}
+
+\pagebreak
+
+b) Now that we know $\lim x_n$ exists, explain why $\lim x_{n+1}$ must also exist and equal the same value. 
+
+\begin{solution}
+$\lim x_{n+1}$ will also exists because it is also monotone and bounded. It must equal the same value because the limit does not change with one more additional sequence. One more iteration is arbitrary when compared to infinity. 
+\end{solution}
+
+c) Compute $\lim x_n$
+
+\begin{solution}
+I will let the $\lim x_n = a$
+$$
+\begin{aligned}
+\lim x_{n+1} &= \lim{x_n}  \\
+\lim \frac{1}{4-x_k} &= a \\
+\frac{1}{4-a} &= a \\
+1 &= 4a - a^2 \\
+0 &= a^2 -4a + 1 \\
+\end{aligned}
+$$
+Using the quadratic formula I get $a = .26795$ and $a = 3.73205$. I must be the former because I know the sequence is decreasing and must be less than the first term which is 3. Therefore $\lim x_n = 0.26795$.  
+\end{solution}
+
+\pagebreak
+
+# Problem 2.4.3
+
+a) Show that 
+
+$$
+\sqrt{2}, \sqrt{2 + \sqrt{2}}, \sqrt{2 + \sqrt{2 + \sqrt{2}}}, . . .
+$$
+
+converges and find the limit. 
+
+\begin{solution}
+The sequence can be written as $a_{n+1} = \sqrt{2 + a_n}$, where $a_1 = \sqrt{2}$ \\
+
+I can prove this is convergent by using the Monotone Convergence Theorem. So first I will show through induction that it is monotone, or in this case, strictly increasing. \\
+
+The base case:
+
+I can be easy to see that $a_1 < a_2$ because $\sqrt{2} < \sqrt{2 + \sqrt{2}}$. \\
+
+The induction hypothesis:
+
+I claim that that $(a_k < a_{k+1}) \Rightarrow (a_{k+1} < a_{k+2})$ for all $k \in \mathbb{N}$
+
+$$
+\begin{aligned}
+a_k &< \sqrt{2 + a_k}  \\
+2 + a_k &< 2 + \sqrt{2 + a_k}  \\
+\sqrt{2 + a_k} &< \sqrt{2 + \sqrt{2 + a_k}} \\
+a_{k+1} &< a_{k+2}  
+\end{aligned}
+$$
+Thus we can see that $a_{n+1} = \sqrt{2 + a_n}$ is monotone for all $n \in \mathbb{N}$. \\
+Next I will use induction prove that the sequence is bounded by 3. \\
+
+The base case: 
+
+It is easy to see that numerically $\sqrt{2} < 3$. \\
+
+The induction hypothesis:
+
+I claim that $(a_k < 3) \Rightarrow (a_{k+1} < 3)$ for all $k \in \mathbb{N}$
+
+$$
+\begin{aligned}
+a_k &< 3  \\
+2 + a_k &< 5 \\
+\sqrt{2 + a_k} &< \sqrt{5} \\
+a_{k+1} < \sqrt{5} &< 3
+\end{aligned}
+$$
+Therefore it is shown that the sequence is bounded for all $n \in \mathbb{N}$, thus, the limit is convergent and the limit exists.
+\end{solution}
+
+\pagebreak
+
+
+Next I will find the value of the limit. First I will let $\lim a_n = \lim a_{n+1} = a$
+
+\begin{solution}
+$$
+\begin{aligned}
+\lim a_{n+1} &= a  \\
+\lim \sqrt{2 + a_k} &= a  \\
+\sqrt{2 + a} &= a  \\ 
+2 + a &= a^2 \\
+0 &= a^2 - a - 2 \\
+0 &= (a-2)(a+1)
+\end{aligned}
+$$
+The limit can only be positive because the sequence is strictly increasing therefore I know that the value of the limit is equal to 2. 
+\end{solution}
+
+b) Does the sequence 
+
+$$
+\sqrt{2}, \sqrt{2\sqrt{2}}, \sqrt{2\sqrt{2\sqrt{2}}}, . . .
+$$
+converge? If so, find the limit.
+
+\begin{solution}
+I will let $a_{n+1} = \sqrt{2 a_n}$, where $a_1 = \sqrt{2}$ and let $\lim a_n = a$.
+
+$$
+\begin{aligned}
+\lim a_{n+1} &= \lim a_n \\
+\lim \sqrt{2 a_n} &= \lim a_n \\
+\sqrt{2 a} &= a \\
+2a &= a^2 \\
+0 &= a^2 - 2a  \\
+0 &= a(a - 2)
+\end{aligned}
+$$
+We see that two solutions are possible, 0 and 2; however, only $a = 2$ makes sense as a limit of the sequence. 
+\end{solution}
+
+\pagebreak
+
+# Problem 2.4.5
+
+Let $x_1 = 2$, and define 
+
+$$
+x_{n+1} = \frac{1}{2} \left( x_2 + \frac{2}{x_n} \right)
+$$
+
+a) Show that $x_n^2$ is always greater than or equal to 2, and then use this to prove that $x_n - x_{n+1} \ge 0$. Conclude that $\lim x_n = \sqrt{2}$ 
+\begin{solution}
+I will use induction to prove this. It is easy to see that this claim is true for the first case. For the induction hypothesis I will show that $(x_n^2 \ge 2) \Rightarrow (x_{n+1}^2 \ge 2)$ 
+$$
+\begin{aligned}
+x_n^2 &\ge 2 \\
+x_n &\ge 2/x_n  \\
+x_n - 2/x_n &\ge 0 \\
+\frac{1}{2}(x_n -2/x_n) &\ge 0  \\
+\left( \frac{x_n}{2} - \frac{1}{x_n} \right)^2 &\ge 0 \\
+\frac{x_n^2}{4} - \frac{2x_n}{2x_n} + \frac{1}{x_n^2} &\ge 0 \\
+\frac{x_n^2}{4} + \frac{1}{x_n^2} &\ge 1 \\
+x_n^2 + \frac{4}{x_n^2} &\ge 4 \\
+x_n^2 + 4 + \frac{4}{x_n^2} &\ge 8 \\
+x_n^2 + \frac{4x_n}{x_n} + \frac{4}{x_n^2} &\ge 8 \\
+\left( x_n + \frac{2}{x_n} \right)^2 &\ge 8 \\
+\frac{1}{4}\left( x_n + \frac{2}{x_n} \right)^2 &\ge 2 \\
+\left(  \frac{1}{2} \left( x_n + \frac{2}{x_n} \right) \right)^2 &\ge 2 \\
+x^2_{n+1} &\ge 2
+\end{aligned}
+$$
+Thus we see that the induction hypothesis is true. $x^2_n$ is greater than 2 for all $n \in \mathbb{N}$. This shows that the sequence is bounded. 
+\end{solution}
+
+\begin{solution}
+Now I must show that $(x_n \ge x_{n+1}) \Rightarrow (x_{n+1} \ge x_{n+2})$.
+
+$$
+\begin{aligned}
+x_n - x_{n+1} &\ge 0 \\
+x_n - \frac{1}{2} \left( x_n + \frac{2}{x_n} \right) &\ge 0 \\
+\frac{x_n}{2} - \frac{1}{x_n} &\ge 0 \\
+\frac{x^2_n}{2x_n} - \frac{2}{2x_n} &\ge 0  \\
+\frac{x^2_n-2}{2x_n} &\ge 0
+\end{aligned}
+$$
+
+Since we have proven that $x^2_n \ge 2$, then the statement $\frac{x^2_n-2}{2x_n} \ge 0$ will also always be true.
+
+Therefore we know that the sequence is decreasing and bounded, thus the limit exists. If we assume that $\lim x_n = a$ then it follows that 
+$$
+\begin{aligned}
+\lim x_{n+1} &= \lim x_n \\
+\lim \frac{1}{2} \left( x_n + \frac{2}{x_n} \right) &= a \\
+\frac{1}{2} \left( a + \frac{2}{a} \right) &= a \\
+1 + \frac{2}{a^2} &= 2  \\
+\frac{2}{a^2} &= 1  \\
+a^2 &= 2 \\
+a &= \sqrt{2}
+\end{aligned}
+$$
+\end{solution}
+
+b) Modify the sequence $(x_n)$ so that it converges to $\sqrt{c}$.
+
+\begin{solution}
+$$
+x_n = \frac{1}{2} \left( x_n + \frac{c}{x_n} \right)
+$$
+\end{solution}
+
+\pagebreak
+
+# Problem 2.5.1
+
+Give an example of each of the following, or argue that such a request is impossible.
+
+a) A sequence that has a subsequence that is bounded but contains no subsequences that converge.
+
+\begin{solution}
+This is impossible by the Bolzano-Weierstrass theorem. If a sequence is has a bounded subsequence then there must be a convergent subsequence within the subsequence. 
+\end{solution}
+
+b) A sequence that does not contain 0 or 1 as a term but contains subsequences converging to each of these values.
+
+\begin{solution}
+$$
+s(n)=\left\{
+\begin{array}{ll}
+      \frac{1}{n+1} \ , \ \ \ n \ \text{is odd}  \\
+      \frac{n}{n+1} \ , \  \ n \ \text{is even}
+\end{array} 
+\right.
+$$
+\end{solution}
+
+c) A sequence that contains subsequences converging to every point in the infinite set $\{ 1,1/2,1/3,1/4,1/5... \}$. 
+
+\begin{solution}
+$$
+a_n = \{1,1,1/2,1,1/2,1/3,1,1/2,1/3,1/4,1,1/2,1/3,1/4,1/5 . . . \}
+$$
+\end{solution}
+

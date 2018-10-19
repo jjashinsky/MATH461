@@ -1,0 +1,187 @@
+---
+title: "Homwework 1"
+author: "Jacob Jashinsky"
+date: "September 18, 2018"
+output: pdf_document
+---
+
+# Problem 1.2.8
+
+### a) 
+
+$f: \mathbb{N} \rightarrow \mathbb{N} \  \text{that is 1-1 but not onto}$ 
+
+#### answer:
+
+$f(n) = 5n$, where $n \in \mathbb{N}$
+
+to obtain $f(x) = 11$, $x$ be equal to 5.5 which is not an element of the naturals. Therefore it is not onto.
+
+
+
+### b) 
+
+$f: \mathbb{N} \rightarrow \mathbb{N} \  \text{that is onto but not 1-1}$ 
+
+#### answer:
+
+$f(n) = (n-1)(n-3)(n-6)$, where $n \in \mathbb{N}$
+
+This is not 1-1 because $f(1)=0$ and $f(6)=0$ but $1 \ne 6$
+
+### b) 
+
+$f: \mathbb{N} \rightarrow \mathbb{Z} \  \text{that is onto and 1-1}$ 
+
+#### answer:
+
+$$
+P(n)=\left\{
+\begin{array}{ll}
+      \text{if} \ n = 1, \ \ \ \ \ \ \ \ \ \ 0  &  \\
+      \text{if} \ n \ \text{is even}, \ \ \ \  n/2 & \\
+      \text{if} \ n \ \text{is odd}, \ \  -(n-1)/2  
+\end{array} 
+\right.
+$$
+
+# Problem 1.2.12
+
+Let $y_1 = 6$, and for each $n \in \mathbb{N}$ define $y_{n+1} = (2y_n - 6)/3$ 
+
+### a) 
+
+Use induction to prove that the sequence satisfies $y_n > -6$ for all $n \in \mathbb{N}$
+
+#### answer:
+
+**Base Case:**
+
+It is clear that by definition, $y_1 > -6$
+
+**Induction Hypothesis:**
+
+Now I will show that if $y_k > -6$ then, $y_{k+1} > -6$ for all $k \in \mathbb{N}$.
+
+I start by letting $y_k > -6$ by true for some $k \in \mathbb{N}$
+
+$$
+\begin{aligned}
+y_{k} &> -6\\
+2y_{k} &> -12\\
+2y_{k}-6 &> -18\\
+(2y_{k}-6)/3 &> -6\\
+y_{k+1} &> -6
+\end{aligned}
+$$
+
+Since we have showed that $y_{k+1} >-6$ and $y_2 > -6$, by induction $y_n > -6$ for all $n \in \mathbb{N}$.
+
+### b) 
+
+Use another induction argument to show the sequence $(y_1,y_2,y_3,...)$ is decreasing
+
+
+#### answer:
+
+I must show that $y_1 > y_2 > y_3 > y_{n+1}$ for all $n \in \mathbb{N}$.
+
+**Base Case:**
+
+This is easily shown by finding $y_2$.
+
+$$
+\begin{aligned}
+y_2 &= (2(y_1)-6)/3 \\
+y_2 &= (2(6)-6)/3 \\
+y_2 &= 2
+\end{aligned}
+$$
+
+Therefore $y_1 > y_2$
+
+**Induction Hypothesis:**
+
+Next I show that if $y_k > y_{k+1}$, then $y_{k+1} > y_{k+2}$ for all $k \in \mathbb{N}$.
+
+$$
+\begin{aligned}
+y_k &> y_{k+1} \\
+2y_k-6 &> 2y_{k+1}-6 \\
+(2y_k-6)/3 &> (2y_{k+1}-6)/3 \\
+y_{k+1} &> y_{k+2} 
+\end{aligned}
+$$
+
+Therefore, because the base case and the induction step are proven we know that the sequence is decreasing for all $n \in \mathbb{N}$.
+
+# Problem 1.3.7
+
+Prove that if $a$ is an upper bound for $A$, and if $a$ is also an element of $A$, then it must be that $a = \sup A$.
+
+#### answer:
+
+For $a$ to be a supremum it must be an upper bound of $A$ and if $b$ is also an upper bound of $A$, then $a \le b$.
+
+It is given that the first part is true so now I only need to prove that if $b$ is also an upper bound of $A$, then $a \le b$.
+
+I start with letting $b$ be an upper bound of $A$. By definition of an upper bound, this means $x \le b$ for all $x \in A$.
+
+We know that $a \in A$ so it must be true that $a \le b$. Thus $a = \sup A$.
+
+# Problem 1.3.9
+
+### a)
+
+If $\sup A < \sup B$, show that there exists an element $b \in B$ that is an upper bound for $A$. 
+
+#### answer:
+
+By definition of supremums and upper bounds I know that there exists a $b \in B$ where $b \le \sup B$, and I know that there exists an $a \in A$ where $a \le \sup A$. 
+
+But since $\sup B$ is larger than $\sup A$ it follows that there exists a $b > a$, and this would mean that $b$ is an upper bound for the set $A$.
+
+### b) 
+
+Give an example to show that this is not always the case if we only assume $\sup A \le\sup B$.
+
+#### answer:
+
+If set $A$ was the interval $(0,4)$ and set $B$ was the interval $[0,4]$, then $\sup A \le\sup B$ would not be true. 
+
+# Problem 1.3.11
+
+Decide if the following statements are true or false. Give a short proof for those that are true. For any that are false, supply an example that makes it false. 
+
+### a) 
+
+If $A$ and $B$ are nonempty, bounded, and satisfy $A \subseteq B$, then $\sup A \le \sup B$. 
+
+#### answer:
+
+
+True.
+
+$A$ is a subset of $B$ so if $x \in A$ then $x \in B$.  I also know that the sets are bounded, therefore it is impossible for $A$ to have any elements there are larger then those contained in $B$. Therefore $\sup A \le \sup B$ will always hold true.
+
+### b) 
+
+If $\sup A < \inf B$ for sets $A$ and $B$, then there exists a $c \in \mathbb{R}$ satisfying $a < c < b$ for all $a \in A$ and $b \in B$.
+
+#### answer:
+
+
+True.
+
+By the definition of supremums I know that $\sup A \ge a$ for all $a \in A$. Like wise, I know that $\sup B \le b$ for all $b \in B$. Further, $\sup A < \inf B$ so I know there exists a real number between the two which I will call $c$. Therefore, $a < c < b$ is true for all $a \in A$ and $b \in B$.   
+
+
+### c)
+
+If there exists a $c \in \mathbb{R}$ satisfying $a < c < b$ for all $a \in A$ and $b \in B$, then $\sup A < \inf B$.
+
+#### answer:
+
+False. If $A$ was the set $(-4,0)$, and if $B$ was $(0,4)$, there 0 greater than set $A$ and less than set $B$ and $\sup A = \inf B$. 
+
+

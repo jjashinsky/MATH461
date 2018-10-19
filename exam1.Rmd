@@ -1,0 +1,221 @@
+---
+title: "Exam 1"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+author: "Jacob Jashinsky"
+class: "461"
+section: "01"
+hours: "4 Hours"
+professor: "Bro Chilton"
+due: "October 17, 2018 5:00PM"
+topic: "1,2,3"
+misc: "4,5"
+title-page: no
+output: HomeworkBYUI::homework_pdf
+---
+# Problem 1
+
+Using the definition of a convergence of a sequence, prove that 
+$$
+\lim_{n \to \infty} \frac{2n}{n+1} = 2
+$$
+
+\begin{solution}
+To prove that the sequence $(a_n)$ converges to 2, I must show that for every $\epsilon > 0$ there exists an $N \in \mathbb{N}$ such that whenever $n \ge N$ it follows that $|a_n - 2| < \epsilon$. \\
+
+I will start by finding a general $N$.
+
+$$
+\begin{aligned}
+|\frac{2N}{N+1} - 2| < \epsilon \\
+|\frac{-2}{N+1}| < \epsilon \\
+\frac{2}{N+1} < \epsilon \\
+\frac{2}{\epsilon} < N+1  \\
+\frac{2}{\epsilon} -1 < N
+\end{aligned}
+$$
+
+Now I will prove that such an $N$ exists because whenever $n \ge N$ it follows that $|a_n - 2| < \epsilon$.
+
+$$
+\begin{aligned}
+n &> \frac{2}{\epsilon} -1 \\
+n + 1 &> \frac{2}{\epsilon} \\
+\frac{1}{n+1} &< \frac{\epsilon}{2} \\
+\frac{2}{n+1} &< \epsilon \\
+|\frac{-2}{n+1}| &< \epsilon \\
+|\frac{-2 + 2n - 2n}{n+1}| &< \epsilon \\
+|\frac{2n}{n+1} + \frac{-2n - 2}{n+1}| &< \epsilon \\
+|\frac{2n}{n+1} - 2 \left( \frac{n+1}{n+1} \right)| &< \epsilon \\
+|\frac{2n}{n+1} - 2| &< \epsilon
+\end{aligned}
+$$
+
+Thus $\lim_{n \to \infty} \frac{2n}{n+1} = 2$
+
+\end{solution}
+
+\newpage
+
+
+# Problem 2 
+
+Let $a_1 = 2$ and $a_{n+1} = \sqrt{2a_n - 1}$ for $n \in \mathbb{N}$
+
+a) Use induction to show that $a_n > a_{n+1}$ for all $n \in \mathbb{N}$
+
+\begin{solution}
+Base Case:
+
+$a_1 = 2$, and $a_2 = \sqrt{3} \approx 1.732051$. Therefore $a_1 > a_2$. \\
+
+Induction Hypothesis:
+
+Assume that $a_k > a_{k+1}$ for some $k \in \mathbb{N}$.
+$$
+\begin{aligned}
+a_k &> a_{k+1} \\
+2a_k &> 2a_{k+1} \\
+2a_k - 1 &> 2a_{k+1} - 1 \\
+\sqrt{2a_k - 1} &> \sqrt{2a_{k+1} - 1} \\
+a_{k+1} &> a_{k+2}
+\end{aligned}
+$$
+
+Thus $a_n > a_{n+1}$ for all $n \in \mathbb{N}$. 
+
+\end{solution}
+
+b) Use induction to show that $a_n > 1$ for all $n \ in \mathbb{N}$
+
+\begin{solution}
+Base Case:
+
+Clearly $a_1 = 2 > 1$, therefore the base case is satisfied. \\
+
+Induction Hypothesis:
+
+Now I assume that $a_n > 1$ for some $k \in \mathbb{N}$.
+
+$$
+\begin{aligned}
+a_k &> 1  \\
+2a_k &> 2  \\
+2a_k -1 &> 2 - 1  \\
+\sqrt{2a_k -1} &> \sqrt{1} \\
+a_{k+1} &> 1
+\end{aligned}
+$$
+
+Thus $a_{k+1} > 1$ for all $n \in \mathbb{N}$. 
+\end{solution}
+
+\newpage
+
+c) What can you say about the convergence of $(a_n)$? If $(a_n)$ converges, find the limit. 
+
+\begin{solution}
+Because of part (a) and (b) I know that $(a_n)$ is strictly decreasing and bounded below, therefore by the Monotone Convergence Theorem, I know that $(a_n)$ converges. \\
+
+To find the limit I will let $\lim a_n = \lim a_{n+1} = a$
+
+$$
+\begin{aligned}
+\lim a_n &= \lim a_{n+1} \\
+\lim \sqrt{2a_n - 1} &= a \\
+\sqrt{2a - 1} &= a \\
+2a - 1 &= a^2 \\
+0 &= a^2 - 2a + 1 \\
+0 &= (a-1)(a-1)
+\end{aligned}
+$$
+Therefore, $\lim a_n = 1$
+\end{solution}
+
+\newpage
+
+# Problem 3
+
+Use the Archimedean Property of $\mathbb{R}$ to prove that $\inf\{1/n : n \in \mathbb{N} \} = 0$.
+
+\begin{solution}
+Consider the set $A = \{y \in \mathbb{R} : y > 0 \}$. I will show that $\inf A = 0$. 
+It is easy to see that 0 is a lower bound for set A because every element of $A$ is greater than 0. \\ 
+
+Now if $b$ was also a lower bound for $A$ then $0 \ge b$, because any value greater than zero would be in the set $A$, thus making it no longer a lower bound. Therefore, $0$ satisfies the two criteria to be an infimum, so $\inf A = 0$.  \\ 
+
+The second part of the Archimedean Property states: Given any real number $y > 0$, there exists an $n \in \mathbb{N}$ satisfiying $1/n < y$. \\
+
+This means that there exists an an element in the set $B = \{1/n : n \in \mathbb{N} \}$ that is less than an element in set $A$. However, I know that $0 \notin B$. \\
+
+It follows that $0$ is a lower bound of $B$. I also know that it is the greatest lower bound of $B$ because it was for $A$.
+
+Therefore, $\inf\{1/n : n \in \mathbb{N} \} = 0$.
+\end{solution}
+
+\newpage
+
+# Problem 4
+
+Use the Cauchy Criterion for Series, Thm 2.7.2 to prove the Comparison Thm, 2.7.4 part (i), which is:
+
+Assume $(a_k)$ and $(b_k)$ are sequences satisfying $o \le a_k \le b_k$ for all $k \in \mathbb{N}$. 
+
+(i) If $\sum^\infty_{k=1} b_k$ converges, then $\sum^\infty_{k=1} a_k$ converges. 
+
+\begin{solution}
+Let $\sum^\infty_{k=1} b_k = \lim s_{b_k} = B$, where $s_{b_k}$ is defined as the partial sums of $b_k$. Because this series converges I know through the Cauchy Criterion for Series that there exists an $N$ such that whenever $n > m \ge N$ it follows that 
+
+$$
+|s_{b_n} - s_{b_m}| < \epsilon 
+$$
+
+$a_k$ is less than $b_k$ for all $k \in \mathbb{N}$, therefore I also know the following
+
+$$
+|s_{a_n} - s_{a_m}| < |s_{b_n} - s_{b_m}| < \epsilon.
+$$
+
+Since $|s_{a_n} - s_{a_m}| < \epsilon$ it must be true that $\sum a_k$ converges. Theorem 2.7.3 lets us say that because the series covnerges then the sequence, $(a_k)$, also converges. 
+\end{solution}
+
+\newpage
+
+# Problem 5
+
+Let $x_1 = 1/2, \ x_2 = 1/3 + 1/4, . . . , \ x_n = \frac{1}{n+1} + \frac{1}{n+2} + ... + \frac{1}{2n}$. Prove the sequence $(x_n)$ converges.  
+
+
+\begin{solution}
+I will use the monotone convergence theorem to prove that that the sequence is monotone and bounded which implies that it is convergent. \\
+
+First it will be shown that it is bounded by 1 and 0. Note that $x_n$ is a sum of decreasing postive values. There are always $n$ number of terms in the sum. \\
+
+The largest value in the sum is always the first $\frac{1}{n+1}$. If we were to add the largest value $n$ times then we would get $\frac{n}{n+1}$. Because the denominator is larger than the numerator it can be said that $\frac{n}{n+1} < 1$. Thus it follows that $0 < x_n < \frac{n}{n+1} < 1$.   \\
+
+Next it will be shown that $x_n < x_{n+1}$. Consider the following:
+
+$$
+x_n = \frac{1}{n+1} + \frac{1}{n+2} + ... + \frac{1}{2n}
+$$ 
+and 
+$$
+x_{n+1} = \frac{1}{n+2} + \frac{1}{n+3}+... + \frac{1}{2n} + \frac{1}{2n+1} + \frac{1}{2n+2}.
+$$
+$x_{n+1}$ will always gain 2 terms and loose 1 term. So I must show that $\frac{1}{n+1} < \frac{1}{2n+1} + \frac{1}{2n+2}$. This will be done by stating something obviously true.
+
+$$
+\begin{aligned}
+2 &< 3 \\
+4n + 2 &< 4n + 3 \\
+\frac{4n + 2}{4n+2} &< \frac{4n + 3}{4n+2} \\
+1 &< \frac{4n + 3}{2(2n+1)}  \\
+\frac{1}{n+1} &< \frac{4n + 3}{2(2n+1)(n+1)}  \\
+\frac{1}{n+1} &< \frac{(2n + 1) + (2n + 2)}{(2n+1)(2n+2)}  \\
+\frac{1}{n+1} &< \frac{(2n + 1)}{(2n+1)(2n+2)} + \frac{(2n + 2)}{(2n+1)(2n+2)} \\
+\frac{1}{n+1} &< \frac{1}{2n+2} + \frac{1}{2n+1} 
+\end{aligned}
+$$
+This shows that the next term in the sequence will always be larger than the previous, therefore it is monotone. 
+
+Because the sequence is bounded and monotone, $(x_n)$ converges.
+\end{solution}

@@ -1,0 +1,275 @@
+---
+title: "Homework 04"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+author: "Jacob Jashinsky"
+class: "M461"
+section: "01"
+hours: "7 Hours"
+professor: "Bro Chilton"
+due: "10/12/2018"
+topic: "2.5.3ab, a.6.2abd, 2.6.4ab"
+misc: "2.7.1ac, 2.7.4ab, 2.7.9abc"
+title-page: no
+output: HomeworkBYUI::homework_pdf
+---
+# 2.5.3ab
+
+a) Prove that if an infinite series converges, then the associative property holds. Assume $a_1 + a_2 + . . .$ converges to a limit $L$ (i.e., the sequence of a partial sums $(s_n) \to L$. Show that any regrouping of the terms 
+
+$$
+(a_1 + a_2 + . . .a_{n_1}) + (a_{n_1+1} + . . .+ a_{n_2}) + (a_{n_2+1} + . . .+ a_{n_3}) + . . . 
+$$
+
+leads to a series that also converges to $L$. 
+
+\begin{solution}
+This proof comes from Petite Etincelle at https://math.stackexchange.com/questions/898643/prove-that-if-an-infinite-series-converges-then-the-associative-property-holds \\
+
+We want to prove that for all $\epsilon > 0$ there exists an $N$ such that for all $n>N$ implies $|s_n - L| < \epsilon$.
+
+I will start by defining the sequence $b_k$, which are partial sums broken up into $k$ groups.
+
+$$
+\begin{aligned}
+b_1&=(a_1+a_2+...+a_{n_1}) \\
+b_2&=(a_1+a_2+...+a_{n_1})+(a_{n_1+1}+...+a_{n_2}) \\
+b_3&=(a_1+a_2+...+a_{n_1})+(a_{n_1+1}+...+a_{n_2})+(a_{n_2+1}+...+a_{n_3})
+\end{aligned}
+$$
+We see that $b_k$ is a sequence of partial sums, and that $b_k = s_{n_k}$, where $s_{n_k}$ is the $k^{th}$ infinite subsequence. From theorem 2.5.2 we know that if $(s_n) \to  L$ implies $(s_{n_k}) \to L$ when $n_k \ge k \ge N$. 
+
+and because $b_n = s_{n_k}$ we know that $(b_n) \to L$, which means that associative property holds for the sum of $(a_n)$. 
+\end{solution}
+
+b) Compare the results to the example discussed at the end of section 2.1 where infinite addition was shown not to be associative. Why doesn't our proof in (a) apply to this example?
+
+\begin{solution}
+2.1 does not apply here because the series was $\sum (-1)^n$, which does not converge. Our series is known to converge. 
+\end{solution}
+
+\newpage
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 02 ---------------------------------->
+<!------------------------------------------------------------------------------>
+# 2.6.2abd
+
+Give an example of each of the following, or argue that such a request is impossible.
+
+a) A Cauchy sequence that is not monotone
+
+\begin{solution}
+$$
+(a_n) = \frac{(-1)^2}{n}
+$$
+This is convergent but it is not monotone.
+\end{solution}
+
+b) A Cauchy sequence with an unbounded subsequence.
+
+\begin{solution}
+This is impossible. Every Cauchy sequence is convergent therefore every Cauchy is bounded. Also, by thm 2.5.2 we know that a subsequence of a convergent sequence must also to the same limit as the original sequence. 
+\end{solution}
+
+d) An unbounded sequence containing a subsequence that is Cauchy
+
+\begin{solution}
+$$
+(a_n) = n(1 + (-1)^n)
+$$
+\end{solution}
+
+\newpage
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 03 ---------------------------------->
+<!------------------------------------------------------------------------------>
+# 2.6.4ab
+
+Let $(a_n)$ and $(b_n)$ be Cauchy sequences. Decide whether each of the following sequences is a Cauchy sequence, justifying each conclusion.
+
+a) $c_n = |a_n - b_n|$
+
+\begin{solution}
+I want to prove that $c_n$ is Cauchy, so I must show that $|c_n - c_m| < \epsilon$. First I will let $c_n = |a_n - b_n|$ which follows that $c_m = |a_m - b_m|$. 
+$$
+\begin{aligned}
+|c_n - c_m| = ||a_n-b_n| - |a_m-b_m|| \\
+\end{aligned}
+$$
+By the triangle inequality theorem: $|a-b| \ge |a|-|b|$, we can express the above statement as thus,
+$$
+\begin{aligned}
+|c_n - c_m| = ||a_n-b_n| - |a_m-b_m|| < |(a_n-a_m) + (b_m-b_n)|
+\end{aligned}
+$$
+Then by the triangle inequality theorem: $|a+b| \le |a|+|b|$, we can express the above statement as thus,
+$$
+\begin{aligned}
+|c_n - c_m| < |(a_n-a_m) + (b_m-b_n)|  < |a_n-a_m| + |b_n-b_m| \\
+\end{aligned}
+$$
+Because we know that $a_n$ and $b_n$ are Cauchy we know that they are less than any $\epsilon \mathbb{R}$
+
+$$
+\begin{aligned}
+|c_n - c_m| &< |a_n-a_m| + |b_n-b_m| < \epsilon/2 + \epsilon/2 = \epsilon \\
+|c_n - c_m| &< \epsilon
+\end{aligned}
+$$
+Therefore, $c_n$ is also Cauchy.
+
+
+\end{solution}
+
+b) $c_n = (-1)^na_n$
+
+\begin{solution}
+If $a_n = 2$, then $c_n$ is not Cauchy, because it does not converge. 
+\end{solution}
+
+
+\newpage
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 04 ---------------------------------->
+<!------------------------------------------------------------------------------>
+# 2.7.1ac
+
+Proving the Alternating Series Test (thm 2.7.7) amounts to showing that the sequence of partial sums
+$$
+s_n = a_1 - a_2 + a_3 - ... \pm \ a_n
+$$
+converges 
+
+a) Prove the Alternating Series Test by showing that $(s_n)$ is Cauchy sequence.
+
+\begin{solution}
+First we will let $s_n = a_1 - a_2 + a_3 - ... \pm \ a_n$, where $a_n$ is a decreasing monotone series and $a_n \to 0$.
+
+I will show that there for every $\epsilon > 0$ there exists an $m,n > N$ such that $|s_n - s_m | < \epsilon$. 
+
+When I subtract $s_n$ and $s_m$ I get the following statement,
+$$
+\begin{aligned}
+|s_n - s_m| = |b_n| = |a_{m+1} - a_{m+2} + a_{m+3} - ... \pm a_n|
+\end{aligned}
+$$
+
+There are two case the must be proved. $b_n$ converges with an even number of terms, and $|b_n|$ converges with an odd number of terms. \\
+
+I must show that $b_n < \epsilon$ for all $n > N$. I will choose an $m$ such that $m > N$ and $a_{m+1} < \epsilon$. I know that there exists a $a_{m+1} < \epsilon$ because the series converges to 0.  
+
+I will start with the even number case, which means that 
+$$
+|b_n| = |a_{m+1} - a_{m+2} + a_{m+3} - ... - a_n|
+$$
+
+I will prove that the sequence is bounded by $0$ and $a_{m+1}$. To show, that I will group the terms together as thus,
+
+$$
+b_n = (a_{m+1} - a_{m+2}) + (a_{m+3} - a_{m+4}) + ...+ (a_{n-1} - a_n)
+$$
+
+Because $a_n$ is a decreasing sequence we know that $(a_{m+1} - a_{m+2}) > 0$, and this will be true for every grouped sequence in $b_n$. Thus we see that $0 < b_n$. If I rearrange the terms as the following,
+
+$$
+b_n = a_{m+1} + (a_{m+3} - a_{m+2}) + (a_{m+5} - a_{m+4}) + ... - a_n
+$$
+now I see that $b_n < a_{m+1}$ because each group is less than zero which will make $b_n < a_{m+1}$, thus the series converges in that case.    
+
+Now I will show the same for when $b_n$ is odd.
+
+$$
+\begin{aligned}
+b_n &= a_{m+1} - a_{m+2} + a_{m+3} - ... + a_n \\
+b_n &= a_{m+1} - ((a_{m+2} - a_{m+3}) + (a_{m+4} - a_{m+5)}) + ...+ (a_{n-2} - a_{n-1}) - a_n)
+\end{aligned}
+$$
+
+The terms inside the parentheses is positive, and $a_{m+1}$ is being subtracted by a positive number. Therefore, $b_n < a_{m+1}$.  
+
+I know that $b_n$ is positive because
+
+$$
+b_n = (a_{m+1} - a_{m+2}) + (a_{m+3} - a_{m+4}) + ...+ (a_{n_2} - a_{n-1}) + a_n > 0
+$$
+Thus we see that in both cases, the series is less than $\epsilon$. Therefore, $s_n$ is Cauchy. 
+\end{solution}
+
+\newpage
+
+c) Consider the subsequence $(s_{2n})$ and $(s_{2n+1})$, and show how the Monotone Convergence Theorem leads to a third proof for the Alternating Series Test. 
+
+\begin{solution}
+The subsequence $(s_{2n})$ will be all of the negative values of the alternating series $(s_n)$, and $(s_{2n+1})$ will be all of the positive values of $(s_n)$. If I can show that each subsequence is monotone and bounded, then by the monotone convergence theorem, each subsequence will converge. \\
+
+If I can then show that the two series converge then the sum of two converging series will also be convergent.  
+\end{solution}
+
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 05 ---------------------------------->
+<!------------------------------------------------------------------------------>
+# 2.7.4ab
+
+Give an example of each or explain why the request is impossible referencing the proper theorem(s).
+
+a) Two series $\sum x_n$ and $\sum y_n$ that both diverge but where $\sum x_n y_n$ converges.
+
+\begin{solution}
+Let $x_n = (-1)^n$ and $y_n = 1/n$, then $\sum x_n$ and $\sum y_n$ both diverge. But $\sum x_n y_n = \sum \frac{(-1)^n}{n}$ will converge by the alternating series test. 
+\end{solution}
+
+b) A convergent series $\sum x_n$ and a bounded sequence $(y_n)$ such that $\sum x_n y_n$ diverges. 
+
+\begin{solution}
+Let $\sum x_n = sum \frac{(-1)^n}{n}$ and the sequence $(y_n) = (-1)^n$. \\
+
+But we see that $\sum x_n y_n = \sum \frac{(-1)^{2n}}{n} = \sum \frac{1}{n}$ will diverge. 
+\end{solution}
+
+\newpage
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 06 ---------------------------------->
+<!------------------------------------------------------------------------------>
+# 2.7.9abc
+
+(Ration Test). Given a series $\sum^\infty_{n=1} a_n$ with $a_n \ne 0$, the Ratio Test states that if $(a_n)$ satisfies 
+$$
+\lim | \frac{a_{n+1}}{a_n} | = r < 1
+$$
+then the series converges absolutely. 
+
+a) Let $r'$ satisfy $r < r' < 1$. Explain why there exists an $N$ such that $n \ge N$ implies $|a_{n+1}| \le |a_n|r'$.
+
+\begin{solution}
+First I will let $\epsilon = r' - r$. 
+
+Now I will start with the definition of a limit. 
+
+$$
+\begin{aligned}
+| \ | \frac{a_{n+1}}{a_n} | - r | &< \epsilon  \\
+-\epsilon < | \frac{a_{n+1}}{a_n} | - r &< \epsilon  \\
+| \frac{a_{n+1}}{a_n} | - r &< r' - r  \\
+| \frac{a_{n+1}}{a_n} | &< r'  \\
+|a_{n+1}| &< r'|a_n|
+\end{aligned}
+$$
+\end{solution}
+
+b) Why does $|a_N|\sum(r')^n$ converge?
+
+\begin{solution}
+Since we know that $r' < 1$, $|a_N|\sum(r')^n$ follows a geometric series which is a converging series.  
+\end{solution}
+
+c) Now, show that $\sum |a_n|$ converges, and conclude that $\sum a_n$ converges. 
+
+\begin{solution}
+Because of part a) we know that there exists an $N$ where $|a_{N+1}| \le |a_N|r'$. It will also be true that $|a_{N+2}| \le |a_{N+1}|r'$ \\
+
+If we multiply that first equation by $r'$ then we get that $|a_{N+2}| < |a_{N+1}|r' \le |a_{N}|r'^2$. It will then follow that $|a_{N+3}| < |a_{N+2}|r' < |a_{N+1}|r'^2 < |a_{N}|r'^3$. \\
+
+We can generalize that  $|a_{N+k}| < |a_N|(r')^k$. It then follows that $\sum|a_{N+k}| < |a_N|\sum(r')^k$. We know that the right side of the inequality converges because it is a geometric series. \\
+
+Then by them 2.7.4 part 1, we know that $\sum|a_{N+k}|$ converges because $a_{N+k}<|a_N|(r')^k$. Thus we know that $\sum|a_n|$ converges and that $\sum a_n$ converges by definition 2.7.8.  
+\end{solution}
+
