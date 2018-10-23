@@ -3,7 +3,7 @@ title: "Homework 6"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 author: "Jacob Jashinsky"
 class: "Math 461"
-hours: "0.5 Hours"
+hours: "2.5 Hours"
 section: "01"
 professor: "Lawrence Chilton"
 due: "`r format(Sys.time(), '%B %d, %Y')`"
@@ -28,19 +28,33 @@ The set is not compact. The subsequence $\{ 1,3,5,...\}$ is contained in $\mathb
 b) $\mathbb{Q} \cap [0,1]$
 
 \begin{solution}
-The set is not compact 
+The set is not compact.
+
+$$
+A = \{ \frac{1}{6} + \frac{1}{6 \cdot 2^2} + \frac{1}{6 \cdot 3^2} + . . . + \frac{1}{6 \cdot n^2} : n \in \mathbb{N}\}, \text{where}  
+$$
+
+$$
+\lim A = \frac{\pi^2}{36} 
+$$
+The limit is within the bounds but is not a rational number. 
+
 \end{solution}
 
 c) The Cantor set
 
 \begin{solution}
-The set is compact
+The set is compact.
 \end{solution}
 
 d) $\{1 + 1/2^2 + 1/3^2 +...+ 1/n^2 : n \in \mathbb{N} \}$
 
 \begin{solution}
-The set is not compact
+The set is not compact. Let the sequence be
+$$
+A = \{ 1 + \frac{1}{2^2} + \frac{1}{3^2} +...+ \frac{1}{n^2} : n \in \mathbb{N}\}, \text{where} 
+$$
+Where $\lim A = \frac{\pi^2}{6}$, but the limit is not in the set. 
 \end{solution}
 
 
@@ -59,7 +73,6 @@ Those subsequence will converge to a limit within $k$ because the set is closed 
 \end{solution}
 
 
-\newpage
 <!------------------------------------------------------------------------------>
 <!------------------------------- Question 03 ---------------------------------->
 <!------------------------------------------------------------------------------>
@@ -70,19 +83,21 @@ Decide whether the following propositions are true or false. If the claim is val
 a) The arbitrary intersection of compact sets is compact. 
 
 \begin{solution}
-x<1
+This is true. Theorem 3.2.14 says that the intersection of an abitrary collection of closed sets is closed. Since compact sets are closed, the interesection of them would also be closed. \\
+
+Campact sets are also bounded so the intersection of a bounded sets will still be bounded. Therefore the interesection will be compact.   
 \end{solution}
 
 b) The arbitrary union of compact sets is compact.
 
 \begin{solution}
-x<1
+This is false. If a had the collection of sets $\mathbb{F} = \{[-n,n] : n \in \mathbb{N} \}$. This would work for a finite union, but the union of an arbitrary collection will not be bounded, therefore, it cannot be conmpact. 
 \end{solution}
 
 c) Let $A$ be arbitrary, and let $K$ be compact. Then, the intersection $A \cap K$ is compact. 
 
 \begin{solution}
-x<1
+This is false. Consider $\mathbb{Q} \cap [0,1]$. $A$ is the arbitrary set and $[0,1]$ is the compqact set. The interesection is not compact. 
 \end{solution}
 
 
@@ -95,12 +110,27 @@ x<1
 
 Consider each of the sets listed in Exercise 3.3.2. For each one that is not compact, find an open cover for which there is no finite subcover. 
 
+a) $\mathbb{N}$
+
 \begin{solution}
-x<1
+$\mathbb{F} = \{(0,n+2) : n \in \mathbb{N} \}$ \\
+For this open cover to contain $\mathbb{N}$ it must infinite.
+\end{solution}
+
+b) $\mathbb{Q} \cap [0,1]$
+
+\begin{solution}
+$\mathbb{F} = \{(\frac{1}{n},1 + \frac{1}{n}) : n \in \mathbb{N} \}$
 \end{solution}
 
 
-\newpage
+c) $\{1 + 1/2^2+...+ 1/n^2 : n \in \mathbb{N} \}$
+
+\begin{solution}
+$\mathbb{F} = \{(0, x') : x' =  1/2 + 1/3^2+...+ 1/(n+1)^2\}$
+\end{solution}
+
+
 <!------------------------------------------------------------------------------>
 <!------------------------------- Question 05 ---------------------------------->
 <!------------------------------------------------------------------------------>
@@ -109,7 +139,9 @@ x<1
 If $P$ is a perfect set and $K$ is compact, is the intersection $P \cap K$ always compact? Always perfect?
 
 \begin{solution}
-x<1
+If the perfect set were $P = [0,5]$ and the compact set were $K = \{1,2,3,4,5\}$. The intersection of these two results in $P \cap K = \{1,2,3,4,5\}$. The interesection of any two closed sets will always be closed. \\
+
+However, in this case $P \cap K$ contains isolated points. So it is not true that the intersection will always be perfect.      
 \end{solution}
 
 \newpage
