@@ -69,7 +69,7 @@ Prove the converse of theorem 3.3.4 by showing that if a set $K \subseteq \mathb
 \begin{solution}
 Since $K$ is bounded every sequence in $K$ will also be bounded. By the Bolzano Weierstass theorem, every bounded sequence will contain a convergent subsequence. Theorem 3.2.5 states that these subsequences in $A$ converge to the limit points of $A$.\\
 
-Those subsequence will converge to a limit within $k$ because the set is closed and contains its limit points, thus the assumptions of compactness is met.    
+Those subsequence will converge to a limit within $K$ because the set is closed and contains its limit points, thus the assumptions of compactness is met.    
 \end{solution}
 
 
@@ -83,21 +83,21 @@ Decide whether the following propositions are true or false. If the claim is val
 a) The arbitrary intersection of compact sets is compact. 
 
 \begin{solution}
-This is true. Theorem 3.2.14 says that the intersection of an abitrary collection of closed sets is closed. Since compact sets are closed, the interesection of them would also be closed. \\
+This is true. Theorem 3.2.14 says that the intersection of an arbitrary collection of closed sets is closed. Since compact sets are closed, the intersection of them would also be closed. \\
 
-Campact sets are also bounded so the intersection of a bounded sets will still be bounded. Therefore the interesection will be compact.   
+Compact sets are also bounded so the intersection of a bounded sets will still be bounded. Therefore the intersection will be compact.   
 \end{solution}
 
 b) The arbitrary union of compact sets is compact.
 
 \begin{solution}
-This is false. If a had the collection of sets $\mathbb{F} = \{[-n,n] : n \in \mathbb{N} \}$. This would work for a finite union, but the union of an arbitrary collection will not be bounded, therefore, it cannot be conmpact. 
+This is false. Theorem 3.2.14 says that the union of a finite collection of closed sets is closed. If a had the collection of sets $\mathbb{F} = \{[-n,n] : n \in \mathbb{N} \}$. This would work for a finite union, but the union of an arbitrary collection will not be bounded, therefore, it cannot be compact. 
 \end{solution}
 
 c) Let $A$ be arbitrary, and let $K$ be compact. Then, the intersection $A \cap K$ is compact. 
 
 \begin{solution}
-This is false. Consider $\mathbb{Q} \cap [0,1]$. $A$ is the arbitrary set and $[0,1]$ is the compqact set. The interesection is not compact. 
+This is false. Consider $\mathbb{Q} \cap [0,1]$. $\mathbb{Q}$ is the arbitrary set $A$, and $K = [0,1]$ is the compact set. The intersection is not compact. 
 \end{solution}
 
 
@@ -120,14 +120,14 @@ For this open cover to contain $\mathbb{N}$ it must infinite.
 b) $\mathbb{Q} \cap [0,1]$
 
 \begin{solution}
-$\mathbb{F} = \{(\frac{1}{n},1 + \frac{1}{n}) : n \in \mathbb{N} \}$
+$\mathbb{F} = \{ ( \frac{1}{n},1 + \frac{1}{n} ) : n \in \mathbb{N} \}$
 \end{solution}
 
 
-c) $\{1 + 1/2^2+...+ 1/n^2 : n \in \mathbb{N} \}$
+c) $\left( -1, \frac{ \sqrt{2} }{2} - \frac{1}{n} \right) \cup \left( \frac{\sqrt{2}}{2} + \frac{1}{n}, 2 \right)$
 
 \begin{solution}
-$\mathbb{F} = \{(0, x') : x' =  1/2 + 1/3^2+...+ 1/(n+1)^2\}$
+$\mathbb{F} = \{ \left( 0, \frac{\pi^2}{6} - \frac{1}{n} \right) \ : n \in \mathbb{N} \}$
 \end{solution}
 
 
@@ -139,7 +139,9 @@ $\mathbb{F} = \{(0, x') : x' =  1/2 + 1/3^2+...+ 1/(n+1)^2\}$
 If $P$ is a perfect set and $K$ is compact, is the intersection $P \cap K$ always compact? Always perfect?
 
 \begin{solution}
-If the perfect set were $P = [0,5]$ and the compact set were $K = \{1,2,3,4,5\}$. The intersection of these two results in $P \cap K = \{1,2,3,4,5\}$. The interesection of any two closed sets will always be closed. \\
+If the perfect set were $P = [0,5]$ and the compact set were $K = \{1,2,3,4,5\}$. The intersection of these two results in $P \cap K = \{1,2,3,4,5\}$. As stated previously, theorem 3.2.14 implies that the intersection of any two closed sets will always be closed. \\
+
+Any element within the intersection will be also exists in $K$ and $P$. Since $K$ and $P$ are bounded, the elements of the intersection will also be bounded. Those the intersection is compact.
 
 However, in this case $P \cap K$ contains isolated points. So it is not true that the intersection will always be perfect.      
 \end{solution}
@@ -155,7 +157,32 @@ Repeat the Cantor construction from Section 3.1 starting with the interval $[0,1
 a) Is the resulting set compact? Perfect?
 
 \begin{solution}
-x<1
+I can define the cantor set as the following,
+
+$$
+\begin{aligned}
+C_0 &= [0,1] \\
+C_1 &= \left[ 0, \frac{3}{8} \right] \cup \left[ \frac{5}{8},1  \right] \\
+C_2 &= \left[ 0, \frac{3}{8} \right] \cup \left[] \frac{5}{8},1  \right] \\
+C_2 &= \left[ 0, \frac{9}{64} \right] \cup \left[ \frac{15}{64}, \frac{3}{8} \right] \cup \left[ \frac{5}{8}, \frac{49}{64}  \right] \cup \left[ \frac{55}{64},1  \right] \\
+C_n &= \left[ \frac{3}{8}C_{n-1} \right] \cup \left[ \frac{3}{8}C_{n-1} + \frac{5}{8}  \right] \\
+\end{aligned}
+$$
+And where,
+$$
+C = \bigcap^\infty_{n=0} C_n
+$$
+
+Since the Cantor set is defined as the interesection of closed sets theorem 3.2.14 states that $C$ is closed. The compact set is also clearly bounded by $0$ and $1$. Therefore, the set is campact by the Heine Borel Theorem. \\
+
+To prove that $C$ is perfect it is necessary to show that no point within $C$ is isolated, or in other words, every point is a limit point. Thm 3.2.5 states that $x$ is a limit point if 
+$\lim x_n = x$ where $x_n$ is a sequence contained in $C$. \\
+
+Let $x \in C$ which implies $x \in C_1$. There exists an $x_1 \in C \cup C_1$ with $x \ne X_1$ satisfiying $|x - x_1| \le 1/4$. \\
+
+I can choose any $x \in C$ and it will be true that $x \in C_n$. Because each interval is decreasing by $(1/4)^n$. for each $n \in \mathbb{N}$ it is logical to suggest that, there exists a sequence $\{x_n : x_n \in C \cup C_n \}$ satisfiying $|x - x_n| \le (1/4)^n$. \\
+
+Because the limit exists we know that every $x \in C$ is a limit point, meaning, $C$ is perfect. 
 \end{solution}
 
 b) Using the algorithms from section 3.1, compute the length and dimension of this cantor-like set.
