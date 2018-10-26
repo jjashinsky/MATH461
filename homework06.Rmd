@@ -3,7 +3,7 @@ title: "Homework 6"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 author: "Jacob Jashinsky"
 class: "Math 461"
-hours: "2.5 Hours"
+hours: "6.0 Hours"
 section: "01"
 professor: "Lawrence Chilton"
 due: "`r format(Sys.time(), '%B %d, %Y')`"
@@ -180,15 +180,23 @@ $\lim x_n = x$ where $x_n$ is a sequence contained in $C$. \\
 
 Let $x \in C$ which implies $x \in C_1$. There exists an $x_1 \in C \cup C_1$ with $x \ne X_1$ satisfiying $|x - x_1| \le 1/4$. \\
 
-I can choose any $x \in C$ and it will be true that $x \in C_n$. Because each interval is decreasing by $(1/4)^n$. for each $n \in \mathbb{N}$ it is logical to suggest that, there exists a sequence $\{x_n : x_n \in C \cup C_n \}$ satisfiying $|x - x_n| \le (1/4)^n$. \\
+I can choose any $x \in C$ and it will be true that $x \in C_n$. Because each interval is decreasing by $(1/4)^n$. for each $n \in \mathbb{N}$ it is logical to suggest that, there exists a sequence $\{x_n : x_n \in C \cup C_n \}$ satisfying $|x - x_n| \le (1/4)^n$. \\
 
 Because the limit exists we know that every $x \in C$ is a limit point, meaning, $C$ is perfect. 
 \end{solution}
 
+\newpage
+
 b) Using the algorithms from section 3.1, compute the length and dimension of this cantor-like set.
 
 \begin{solution}
-x<1
+If I were to scale $[0,1]$ by $8/3$ then I get the interval $[0,8/3]$. If I where to cut out the middle fourth then I get $[0,1] \cup [5/3, 8/3]$. \\
+
+Note that multiplying by $8/3$ gives two intervals of length one. Therefore I can write, $2 = (8/3)^x$ where $x$ is the number of dimensions of the set. Solving for $x$ produces, $x = \ln{(2)}/\ln{(8/3)} \approx 0.7066951$. \\
+
+The amount of length taken out of the set is equal to the sum of the length of one piece of the interval times by a fourth and the number of intervals being taken out. The sum is $0 + 1/4 + 3/16 + 9/64 + 27/256 + ...)$. \\
+
+Through an infinite geometric series the sum is $\frac{1/4}{1-3/4} = \frac{1/4}{1/4} = 1$. This implies that the length of the Cantor set must be 0 because $1-1 = 0$.   
 \end{solution}
 
 
