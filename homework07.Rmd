@@ -1,0 +1,138 @@
+---
+title: "HW #"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+author: "Jacob Jashinsky"
+class: "Math 461"
+hours: "0.5 Hours"
+section: "01"
+professor: "Lawrence Chilton"
+due: "`r format(Sys.time(), '%B %d, %Y')`"
+topic: "3.4.9a, 4.2.2abc, 4.2.5abc"
+misc: "4.2.6abcd, 4.3.1ab"
+title-page: false
+output: HomeworkBYUI::real_analysis_pdf
+---
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 01 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{3.4.9a}
+
+Let $\{ r_1, r_2, r_3,... \}$ be an enumeration of the rational numbers, and for each $n \in \mathbb{N}$ set $\epsilon_n = 1/2^n$. Define $O = \bigcup^\infty_{n=1} V_{\epsilon_n}(R_n)$, and let $F = O^c$.
+
+a. Argue that $F$ is a closed, nonempty set consisting only of irrational numbers.
+
+\begin{solution}
+x<1
+\end{solution}
+
+\newpage
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 02 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{4.2.2abc}
+
+For each stated limit, find the largest possible $\delta$-neighborhood that is a proper response to the given $\epsilon$ challenge. 
+
+a. $\lim_{x \to 3}(5x - 6) = 9$, where $\epsilon = 1$.
+
+\begin{solution}
+x<1
+\end{solution}
+
+b. $\lim_{x \to 4}\sqrt{x} = 2$, where $\epsilon = 1$.
+
+\begin{solution}
+x<1
+\end{solution}
+
+c. $\lim_{x \to \pi}\lfloor x \rfloor = 3$, where $\epsilon = 1$.
+
+\begin{solution}
+x<1
+\end{solution}
+
+
+
+\newpage
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 03 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{4.2.5abc}
+
+Use Definition 4.2.1 to supply a proper prof for the following limit statements.
+
+a. $\lim_{x \to 2}(3x + 4) = 10$
+
+\begin{solution}
+x<1
+\end{solution}
+
+
+b. $\lim_{x \to 0}x^3 = 0$
+
+\begin{solution}
+x<1
+\end{solution}
+
+
+c. $\lim_{x \to 2}(x^2 + x - 1) = 5$
+
+\begin{solution}
+x<1
+\end{solution}
+
+\newpage
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 04 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{4.2.6}
+Decide if the following are true or false, and give short justifications for each conclusion.
+
+a. If a particular $\delta$ has been constructed as a suitable response to a particular $\epsilon$ challange, then any smaller positive $\delta$ will also suffice.
+
+\begin{solution}
+x<1
+\end{solution}
+
+
+b. If $\lim_{x \to a} f(x) = L$ and $a$ happens to be in the domain of $f$, then $L=f(a)$. 
+
+\begin{solution}
+x<1
+\end{solution}
+
+
+c. If $\lim_{x \to a} f(x) = L$, then $\lim_{x \to a} 3[f(x) - 2]^2 = 3(L-2)^2$.
+
+\begin{solution}
+x<1
+\end{solution}
+
+d. If If $\lim_{x \to a} f(x) = 0$, then $\lim f(x)g(X) = 0$ for any function $g$ (with domain equal to the domain of $f$.)
+
+\begin{solution}
+x<1
+\end{solution}
+
+
+
+\newpage
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 05 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{4.3.1}
+
+Let  $g(x) = \sqrt[3]{x}$ 
+
+a. Prove that $g$ is continuous at $c = 0$.
+
+\begin{solution}
+x<1
+\end{solution}
+
+b. Prove that $g$ is continuous at a point $c \ne 0$. (The Identity $a^3 - b^3 = (a-b)(a^2 +ab + b^2)$ will be helpful.)
+
+\begin{solution}
+x<1
+\end{solution}
+
