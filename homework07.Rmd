@@ -3,7 +3,7 @@ title: "HW #"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 author: "Jacob Jashinsky"
 class: "Math 461"
-hours: "0.5 Hours"
+hours: "1.5 Hours"
 section: "01"
 professor: "Lawrence Chilton"
 due: "`r format(Sys.time(), '%B %d, %Y')`"
@@ -17,15 +17,22 @@ output: HomeworkBYUI::real_analysis_pdf
 <!------------------------------------------------------------------------------>
 \exercise{3.4.9a}
 
-Let $\{ r_1, r_2, r_3,... \}$ be an enumeration of the rational numbers, and for each $n \in \mathbb{N}$ set $\epsilon_n = 1/2^n$. Define $O = \bigcup^\infty_{n=1} V_{\epsilon_n}(R_n)$, and let $F = O^c$.
+Let $\{ r_1, r_2, r_3,... \}$ be an enumeration of the rational numbers, and for each $n \in \mathbb{N}$ set $\epsilon_n = 1/2^n$. Define $O = \bigcup^\infty_{n=1} V_{\epsilon_n}(r_n)$, and let $F = O^c$.
 
 a. Argue that $F$ is a closed, nonempty set consisting only of irrational numbers.
 
 \begin{solution}
-x<1
+Demorgan's law states $(A \cup B)^c = A^c \cap B^c$. $F$ is the complement of an union, therefore it is the intersection of complements of $V_{\epsilon_n}(r_n)$. \\ 
+
+$V_{\epsilon_n}(r_n)$ is an open set, so the complement of the neighborhood would make it a closed set. Theorem 3.2.14 states that the arbitrary intersection of closed sets is closed. This proves that $F$ is closed. \\
+
+No rational number exists in the interval $V_{\epsilon_n}(r_n)^c$, therefore $F$ would not contain an rational numbers either. \\
+
+
+The length that was removed is equal to the sum $1/2 + 1/4 + 1/8 + ... $, which by the geometric series is equal to $\frac{1/2}{1-1/2} = 1$. This means that the total length that was not included in the intersection is equal to 1. Therefore $F$ is nonempty. 
 \end{solution}
 
-\newpage
+
 <!------------------------------------------------------------------------------>
 <!------------------------------- Question 02 ---------------------------------->
 <!------------------------------------------------------------------------------>
@@ -36,19 +43,69 @@ For each stated limit, find the largest possible $\delta$-neighborhood that is a
 a. $\lim_{x \to 3}(5x - 6) = 9$, where $\epsilon = 1$.
 
 \begin{solution}
-x<1
+Given that $\epsilon = 1$, we have:
+
+$$
+\begin{aligned}
+|f(x) - L| &< \epsilon \\
+|5x - 6 - 9| &< 1 \\
+|5x - 15| &< 1 \\
+5|x - 3| &< 1 \\
+|x - 3| &< 1/5. \\
+\end{aligned}
+$$
+It then follows that there exists a $\delta$ such that $|x - c| < \delta$. Thus I get that $|x - 3| < \delta \le 1/5$. \\
+
+Thus (3 - 1/5, 3 + 1/5) is the largest open interval possible. 
 \end{solution}
 
+
+\newpage
 b. $\lim_{x \to 4}\sqrt{x} = 2$, where $\epsilon = 1$.
 
 \begin{solution}
-x<1
+Given that $\epsilon = 1$, we have:
+
+$$
+\begin{aligned}
+|f(x) - L| &< \epsilon \\
+|\sqrt{x} - 2| &< 1 \\
+-1 < (\sqrt{x} - 2) &< 1 \\
+1 < \sqrt{x} &< 3 \\
+1 < x &< 9 \\
+-3 < (x - 4) &< 5 \\
+3 < |x - 4| &< 5
+\end{aligned}
+$$
+It then follows that there exists a $\delta$ such that $|x - c| < \delta$. Thus I get that $|x - 4| < \delta \le 3$. \\
+
+Thus (1, 7) is the largest open interval possible around 4. 
 \end{solution}
 
 c. $\lim_{x \to \pi}\lfloor x \rfloor = 3$, where $\epsilon = 1$.
 
 \begin{solution}
-x<1
+Given that $\epsilon = 1$, we have:
+
+$$
+\begin{aligned}
+|f(x) - L| &< \epsilon \\
+| \lfloor x \rfloor - 3| &< 1 \\
+-1 <( \lfloor x \rfloor - 3) &< 1 \\
+2 < \lfloor x \rfloor &< 4 \\
+\end{aligned}
+$$
+Since $x \to \pi$ I can write $2 < \lfloor x \rfloor < 4$ as,
+
+$$
+\begin{aligned}
+2 < x &< 4 \\
+2-\pi < (x- \pi) &< 4-\pi \\
+|2-\pi| < |(x- \pi)| &< 4-\pi
+\end{aligned}
+$$
+
+It then follows that there exists a $\delta$ such that $|x - c| < \delta$. Thus I get that $|x - \pi| < \delta \le |2-\pi|$.
 \end{solution}
 
 
@@ -59,27 +116,103 @@ x<1
 <!------------------------------------------------------------------------------>
 \exercise{4.2.5abc}
 
-Use Definition 4.2.1 to supply a proper prof for the following limit statements.
+Use Definition 4.2.1 to supply a proper proof for the following limit statements.
 
 a. $\lim_{x \to 2}(3x + 4) = 10$
 
 \begin{solution}
-x<1
+Before the formal proof I will show how to find $\delta$. 
+
+$$
+\begin{aligned}
+|f(x) - L| &< \epsilon \\
+|3x + 4 - 10| &< \epsilon \\
+3|x-2| &< \epsilon \\
+|x-2| &< \epsilon/3
+\end{aligned}
+$$
+
+Now the formal proof. 
+
+For any $\epsilon > 0$ let $\delta = \epsilon/3$. I will show that $0 < |x-c| < \delta$ implies $|f(x) - L| < \epsilon$.
+
+$$
+\begin{aligned}
+|x-2| &< \epsilon/3 \\
+3|x-2| &< \epsilon \\
+|3x-6| &< \epsilon \\
+|(3x+4) - 10| &< \epsilon \\
+|f(x) - L| &< \epsilon
+\end{aligned}
+$$
+Thus $\lim_{x \to 2}(3x + 4) = 10$.
 \end{solution}
 
 
 b. $\lim_{x \to 0}x^3 = 0$
 
 \begin{solution}
-x<1
+Before the formal proof I will show how to find $\delta$. 
+
+$$
+\begin{aligned}
+|f(x) - L| &< \epsilon \\
+|x^3 - 0| &< \epsilon \\
+-\epsilon < x^3 &< \epsilon \\
+-(\epsilon)^{1/3} < x &< (\epsilon)^{1/3} \\
+|x| &< (\epsilon)^{1/3}
+\end{aligned}
+$$
+
+Now the formal proof. 
+
+For any $\epsilon > 0$ let $\delta = \epsilon^{1/3}$. I will show that $0 < |x-c| < \delta$ implies $|f(x) - L| < \epsilon$.
+
+$$
+\begin{aligned}
+|x-0| &< \epsilon^{1/3} \\
+-\epsilon^{1/3} < x &< \epsilon^{1/3} \\
+-\epsilon < x^3 &< \epsilon \\
+|x^3 - 0| &< \epsilon \\
+|f(x) - L| &< \epsilon
+\end{aligned}
+$$
+Thus $\lim_{x \to 0}x^3 = 0$.
 \end{solution}
 
 
 c. $\lim_{x \to 2}(x^2 + x - 1) = 5$
 
 \begin{solution}
+Before the formal proof I will show how to find $\delta$. 
+
+$$
+\begin{aligned}
+|x^2 + x -1 - 5| &< \epsilon \\
+-\epsilon < (x^2 + x -6) &< \epsilon \\
+-\epsilon < ((x + 1/2)^2 -6 - 1/4) &< \epsilon \\
+25/4-\epsilon < ((x + 1/2)^2) &< \epsilon + 25/4 \\
+\sqrt{25/4-\epsilon} < (x + 1/2) &< \sqrt{\epsilon + 25/4} \\
+\sqrt{25/4-\epsilon} - 5/2 < (x - 2) &< \sqrt{\epsilon + 25/4} - 5/2 \\
+-\delta < (x - 2) < \delta
+\end{aligned}
+$$
+
+Let $\delta = \min\{ (-\sqrt{25/4-\epsilon} + 5/2), (\sqrt{\epsilon + 25/4} - 5/2\})$. 
+
+I will show that $\sqrt{\epsilon + 25/4} - 5/2$ is the larger one.
+
+
+
+I will show that $0 < |x-c| < \delta$ implies $|f(x) - L| < \epsilon$.
+
+$$
+\begin{aligned}
 x<1
+\end{aligned}
+$$
 \end{solution}
+
 
 \newpage
 <!------------------------------------------------------------------------------>
@@ -88,30 +221,30 @@ x<1
 \exercise{4.2.6}
 Decide if the following are true or false, and give short justifications for each conclusion.
 
-a. If a particular $\delta$ has been constructed as a suitable response to a particular $\epsilon$ challange, then any smaller positive $\delta$ will also suffice.
+a. If a particular $\delta$ has been constructed as a suitable response to a particular $\epsilon$ challenge, then any smaller positive $\delta$ will also suffice.
 
 \begin{solution}
-x<1
+True. $\delta$ is typically the largest possible delta, so any smaller will still be within the interval set by the epsilon challenge. 
 \end{solution}
 
 
 b. If $\lim_{x \to a} f(x) = L$ and $a$ happens to be in the domain of $f$, then $L=f(a)$. 
 
 \begin{solution}
-x<1
+False, the function could be a piece-wise function, where $f(a)$ is defined as something other than the limit. 
 \end{solution}
 
 
 c. If $\lim_{x \to a} f(x) = L$, then $\lim_{x \to a} 3[f(x) - 2]^2 = 3(L-2)^2$.
 
 \begin{solution}
-x<1
+This is true. Since $3(L-2)^2$ is found through a limit it avoids the issue discussed in part (c). This is also supported by the algebraic limit theorem for function limits. 
 \end{solution}
 
-d. If If $\lim_{x \to a} f(x) = 0$, then $\lim f(x)g(X) = 0$ for any function $g$ (with domain equal to the domain of $f$.)
+d. If $\lim_{x \to a} f(x) = 0$, then $\lim_{x \to a} f(x)g(x) = 0$ for any function $g$ (with domain equal to the domain of $f$.)
 
 \begin{solution}
-x<1
+True. Since the domains are the same the algebraic limit theorem for functional limit applies. In which, $\lim_{x \to a} f(x)g(x) = 0 (\lim_{x \to a}g(x)) = 0$
 \end{solution}
 
 
