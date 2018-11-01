@@ -3,7 +3,7 @@ title: "HW #"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 author: "Jacob Jashinsky"
 class: "Math 461"
-hours: "1.5 Hours"
+hours: "4 Hours"
 section: "01"
 professor: "Lawrence Chilton"
 due: "`r format(Sys.time(), '%B %d, %Y')`"
@@ -29,7 +29,7 @@ $V_{\epsilon_n}(r_n)$ is an open set, so the complement of the neighborhood woul
 No rational number exists in the interval $V_{\epsilon_n}(r_n)^c$, therefore $F$ would not contain an rational numbers either. \\
 
 
-The length that was removed is equal to the sum $1/2 + 1/4 + 1/8 + ... $, which by the geometric series is equal to $\frac{1/2}{1-1/2} = 1$. This means that the total length that was not included in the intersection is equal to 1. Therefore $F$ is nonempty. 
+The length that was removed is equal to the sum $2(1/2 + 1/4 + 1/8 + ...)$ (assuming no overlap of intervals), which by the geometric series is equal to $2\frac{1/2}{1-1/2} = 2$. This means that the total length that was not included in the intersection is equal to 1. Therefore $F$ is nonempty. 
 \end{solution}
 
 
@@ -260,12 +260,38 @@ Let  $g(x) = \sqrt[3]{x}$
 a. Prove that $g$ is continuous at $c = 0$.
 
 \begin{solution}
-x<1
+$g$ is continuous at $c$ if if for all $\epsilon > 0$, there exists a $\delta > 0$ such that whenever $|x-c| < \delta$ it follows that $|f(x) - f(c)| < \epsilon$.
+
+I will let $\delta = \epsilon^3$. Then it follows that
+
+$$
+\begin{aligned}
+|x-c| &< \delta \\
+|x-0| &< \epsilon^3 \\
+|\sqrt[3]{x} - 0| &< \epsilon \\
+|\sqrt[3]{x} - \sqrt[3]{0}| &< \epsilon \\
+\end{aligned}
+$$
+Thus we see that $g$ is continuous at $0$.
 \end{solution}
 
 b. Prove that $g$ is continuous at a point $c \ne 0$. (The Identity $a^3 - b^3 = (a-b)(a^2 +ab + b^2)$ will be helpful.)
 
 \begin{solution}
-x<1
+Consider the function $f: A \to \mathbb{R}$ where $f(x) = x$ is continous at a point $c \ne 0$, and $c \in \mathbb{R}$
+
+Let $\delta = \epsilon$. Then it follows that
+
+$$
+\begin{aligned}
+|x-c| &< \delta \\
+|x-c| &< \epsilon \\
+|f(x) - f(c)| &< \epsilon \\
+\end{aligned}
+$$
+
+Thus we see that $x$ is continuous. Note that $x = \sqrt[3]{x} \cdot \sqrt[3]{x} \cdot \sqrt[3]{x}$ \\
+
+Then by the Algebraic Continuity Theorem (iii) we see that $x$ is a continious at point $c$; therefore, $\sqrt[3]{x}$ must be continous at $c$.  
 \end{solution}
 
