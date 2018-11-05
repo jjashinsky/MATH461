@@ -29,7 +29,9 @@ $V_{\epsilon_n}(r_n)$ is an open set, so the complement of the neighborhood woul
 No rational number exists in the interval $V_{\epsilon_n}(r_n)^c$, therefore $F$ would not contain an rational numbers either. \\
 
 
-The length that was removed is equal to the sum $2(1/2 + 1/4 + 1/8 + ...)$ (assuming no overlap of intervals), which by the geometric series is equal to $2\frac{1/2}{1-1/2} = 2$. This means that the total length that was not included in the intersection is equal to 1. Therefore $F$ is nonempty. 
+The length that was removed is equal to the sum $2(1/2 + 1/4 + 1/8 + ...)$ (assuming no overlap of intervals), which by the geometric series is equal to $2\frac{1/2}{1-1/2} = 2$. \\
+
+This means that the total length that was not included in the intersection is equal to 1. Therefore $F$ is nonempty. 
 \end{solution}
 
 
@@ -309,7 +311,7 @@ $$
 \end{aligned}
 $$
 
-Thus this shows that when ever $x>0$, regardless of the $c$ (positive or negative), then $g(x)$ is continuous. 
+Thus this shows that when ever $x>0$, regardless of the $c$ (positive or negative), then $g(x)$ is continuous.
 
 Since this is an odd function, if a negative variable was entered in the function, then the result would be negative. This is the same as using positive $x$ values but multiplying by $-1$. The algebraic continuous theorem states that this product will also be continuous as well. 
 \end{solution}
