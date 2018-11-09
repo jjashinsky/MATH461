@@ -3,7 +3,7 @@ title: "HW #8"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 author: "Jacob Jashinsky"
 class: "Math 461"
-hours: "7 Hours"
+hours: "8 Hours"
 section: "01"
 professor: "Lawrence Chilton"
 due: "`r format(Sys.time(), '%B %d, %Y')`"
@@ -22,7 +22,7 @@ a) Supply a proof for Theorem 4.3.9 using the $\epsilon-\delta$ characterization
 \begin{solution}
 The theorem states: If $f$ is continuous at $c \in A$, and if $g$ is continuous at $f(c) \in B$, then $g(f(c))$ is continuous at $c$. \\
 
-Since $g$ is continuous at $f(c)$ it can be said that whenever $|f(x) - f(c) < \delta$ it follows that $|g(f(x)) - g(f(c))| < \epsilon$. This means that $g(f(x))$ is continuous at $c$ whenever $|x-c| \delta$.   
+Since $g$ is continuous at $f(c)$ it can be said that whenever $|f(x) - f(c)| < \delta$ it follows that $|g(f(x)) - g(f(c))| < \epsilon$. This means that $g(f(x))$ is continuous at $c$ whenever $|x-c|< \delta$.   
 \end{solution}
 
 
@@ -164,7 +164,7 @@ $$
 c) Prove that $y$ is a fixed point of $f$ (i.e., $f(y) = y$) and that it is unique in this regard.
 
 \begin{solution}
-Because the sequence is Cauchy we know that it converges to $y$. Also note that the function is continuous on its domain and is a recursive dynamical sequence. So the sequence $(y_1, f(y_1), f(f(y_1)),...) = (y, f(y), f(f(y),...) = (y,y,f(y),...) = (y,y,y,...)$ is obviosuly covnerging to $y$.   
+Because the sequence is Cauchy we know that it converges to $y$. Also note that the function is continuous on its domain and is a recursive dynamical sequence. So the sequence $(y_1, f(y_1), f(f(y_1)),...) = (y, f(y), f(f(y),...) = (y,y,f(y),...) = (y,y,y,...)$ is obviously converging to $y$.   
 \end{solution}
 
 d) Finally, prove that if $x$ is any arbitrary point in $\mathbb{R}$, then the sequence $(x f(x), f(f(x)),...)$ converges to $y$ defined in (b). 
@@ -227,9 +227,15 @@ f(r) = rk
 $$
 \end{solution}
 
+\newpage
+
 c) Show that if $f$ is continuous at $x=0$, then $f$ is continuous at every point in $\mathbb{R}$ and conclude that $f(x) = kx$ for all $x \in \mathbb{R}$. Thus, any additive function that is continuous at $x = 0$ must necessarily be a linear function through the origin.
 
-\begin{solution}
+\begin{solution} 
+Thm. 4.3.2 (iii) states that if $(x_n) \to c$ then it follows that $f(x_n) \to f(c)$. \\
+
+We know that $f(r) = rk$, and we can find a sequence of rational numbers that converges to a particular irrational number. This means that since $(r_n) \to c \Rightarrow f(x_n) \to f(c)$. Thus our function is defined for all integers, rational and irrational numbers. \\
+
 Let $f(x) = kx$ and $\delta = \epsilon/k > 0$. We already know that When ever $|x - c| < \delta$ it follows that 
 
 $$
@@ -239,8 +245,7 @@ $$
 |f(x) - f(c)| < \epsilon
 \end{aligned}
 $$
-
-
+$f(x) = kx$ is a linear equation with varying slope.
 \end{solution}
 
 \newpage
@@ -258,13 +263,48 @@ I know that $x$ is continuous on all $\mathbb{R}$. I can use the algebraic conti
 b) Argue, using them 4.4.5, that $f$ is not uniformly continuous on $\mathbb{R}$.
 
 \begin{solution}
+Let $x_n = n$ and $y_n = \frac{n^2+1}{n}$. \\
+
+$$
+\begin{aligned}
+&\lim |n - \frac{n^2+1}{n} |\\
+&\lim |\frac{n^2}{n} - \frac{n^2+1}{n}| \\
+&\lim \left(\frac{1}{n} \right) = 0
+\end{aligned}
+$$
+However,
+$$
+\begin{aligned}
+|f(x_n) - f(y_n)| &= \\
+&= |n^3 - \left( \frac{n^2+1}{n} \right)^3| \\
+&= |\frac{n^6}{n^3} - \frac{n^6 + 3n^4 + 3n^2 + 1}{n^3}| \\
+&= |\frac{- 3n^4 - 3n^2 - 1}{n^3}| \\
+&= 3n + 3 + 1/n^3 > \epsilon_0
+\end{aligned}
+$$
+As we can see, that the difference between the two functions will always result in a value greater than epsilon that we could set it at. 
+
 
 \end{solution}
+
+\newpage
 
 c) Show that $f$ is uniformly continuous on any bounded subset of $\mathbb{R}$.
 
 \begin{solution}
-x<1
+If $x,c \in A\subseteq \mathbb{R}$, where $A$ is a bounded. You will notice that $|x^2 + xc + c^2| \le |3c^2|$ if $c\ge x$. This will serve as our upper bound. Let $\delta = \frac{\epsilon}{|3c^3|}$
+
+$$
+\begin{aligned} 
+|x-c| &< \delta \\
+|x-c| &< \frac{\epsilon}{|3c^3|} \\
+|3c^2||x-c| &< \epsilon \\
+|x^2 + xc + c^2||x-c| \le |3c^2||x-c| &< \epsilon \\
+|x^3 - c^3| &< \epsilon
+\end{aligned}
+$$
+
+Thus for any bounded interval you can find a delta that works for all $x \in A$ for any chosen epsilon.
 \end{solution}
 
 \newpage
@@ -308,6 +348,6 @@ Here we see that $x_n$ is Cauchy, however, as the sequence gets closer to zero t
 b) A uniformly continuous function $f : (0,1) \to \mathbb{R}$ and a Cauchy sequence $(x_n)$ such that $f(x_n)$ is not a Cauchy sequence. 
 
 \begin{solution}
-This is false. No continuous function that maps $(0,1) \to \mathbb{R}$ is uniformaly continuous. 
+This is false. No continuous function that maps $(0,1) \to \mathbb{R}$ is uniformly continuous. 
 \end{solution}
 
