@@ -1,0 +1,85 @@
+---
+title: "HW #9"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+author: "Jacob Jashinsky"
+class: "Math 461"
+hours: "0 Hours"
+section: "01"
+professor: "Lawrence Chilton"
+due: "`r format(Sys.time(), '%B %d, %Y')`"
+topic: "4.4.9, 4.5.2ab"
+misc: "4.5.3, 4.5.7"
+title-page: false
+output: HomeworkBYUI::real_analysis_pdf
+---
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 01 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{4.4.9}
+
+(Lipschitz Function) A function $f: A \to \mathbb{R}$ is called Lipschitz if there exists a bound $M > 0$ such that 
+
+$$
+|\frac{f(x) - f(y)}{x-y}| \le M
+$$
+for all $x \ne y \in A$. Geometrically speaking, a function $f$ is Lipschitz if there is a uniform bound on the magnitude of the slopes of lines drawn through any two points in the graph of $f$.
+
+a) Show that if $f: A \to \mathbb{R}$ is lipschitz, then it is uniformly continuous on $A$. 
+
+
+\begin{solution}
+x<1
+\end{solution}
+
+b) Is the converse statement true? Are all uniformly coninuous functions necesarily Lipschitz?
+
+\begin{solution}
+x<1
+\end{solution}
+
+\newpage
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 02 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{4.5.2ab}
+
+Provide an example of each of the following, or explain why the request is impossible. 
+
+a) A contuinuous function defined on an open interval with range equal to a closed interval. 
+
+\begin{solution}
+x<1
+\end{solution}
+
+b) A continuous function defined on a closed inteval with a range equal to an open interval. 
+
+\begin{solution}
+x<1
+\end{solution}
+
+
+\newpage
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 03 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{4.5.3}
+
+A function $f$ is increasing on $A$ if $f(x) \le f(y)$ for all $x < y$ in $A$. Show that if $f$ is increasing on $[a,b]$ and statisfies the intermediate value property (Def 4.5.3), then $f$ is continuous on $[a,b]$.
+
+\begin{solution}
+x<1
+\end{solution}
+
+
+
+\newpage
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 04 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{4.5.7}
+
+Let $f$ be a continuous function on the closed interval $[0,1]$ with range also contained in $[0,1]$. Prove that $f$ must have a fixed point; that is, show $f(x) = x$ for at least one value of $x \in [0,1]$
+
+\begin{solution}
+x<1
+\end{solution}
