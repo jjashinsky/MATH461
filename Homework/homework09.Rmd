@@ -3,7 +3,7 @@ title: "HW #9"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 author: "Jacob Jashinsky"
 class: "Math 461"
-hours: "0 Hours"
+hours: "1 Hours"
 section: "01"
 professor: "Lawrence Chilton"
 due: "`r format(Sys.time(), '%B %d, %Y')`"
@@ -28,16 +28,28 @@ a) Show that if $f: A \to \mathbb{R}$ is lipschitz, then it is uniformly continu
 
 
 \begin{solution}
-x<1
+Let $\epsilon > 0$ and $\delta = \epsilon/M$.
+
+$$
+\begin{aligned}
+|x - y| &< \delta \\
+|x - y| &< \epsilon/M \\
+M|x - y| &< \epsilon \\
+|f(x) - f(y)| < M|x - y| &< \epsilon \\
+|f(x) - f(y)| &< \epsilon 
+\end{aligned}
+$$
+
+Thus $f$ is uniformly continuous. 
 \end{solution}
 
-b) Is the converse statement true? Are all uniformly coninuous functions necesarily Lipschitz?
+b) Is the converse statement true? Are all uniformly continuous functions necessarily Lipschitz?
 
 \begin{solution}
-x<1
+It is. A function is not uniformly continuous when it has an unbounded slope between two points. So when a function is uniformly continuous it must have a bounded slope.  
 \end{solution}
 
-\newpage
+
 <!------------------------------------------------------------------------------>
 <!------------------------------- Question 02 ---------------------------------->
 <!------------------------------------------------------------------------------>
@@ -45,16 +57,18 @@ x<1
 
 Provide an example of each of the following, or explain why the request is impossible. 
 
-a) A contuinuous function defined on an open interval with range equal to a closed interval. 
+a) A continuous function defined on an open interval with range equal to a closed interval. 
 
 \begin{solution}
-x<1
+Let $f(x) = 1$
+
+This range will always be 1, which will be closed because its an isolated point.  
 \end{solution}
 
-b) A continuous function defined on a closed inteval with a range equal to an open interval. 
+b) A continuous function defined on a closed interval with a range equal to an open interval. 
 
 \begin{solution}
-x<1
+If these intrvals were also bounded then by the intermediate value theorem this would be impossible. However we can consider $\mathbb{R}$ as a closed and open set. Therefore $f(x) = x$ is defined on a closed interval and maps to an open interval.    
 \end{solution}
 
 
@@ -64,10 +78,10 @@ x<1
 <!------------------------------------------------------------------------------>
 \exercise{4.5.3}
 
-A function $f$ is increasing on $A$ if $f(x) \le f(y)$ for all $x < y$ in $A$. Show that if $f$ is increasing on $[a,b]$ and statisfies the intermediate value property (Def 4.5.3), then $f$ is continuous on $[a,b]$.
+A function $f$ is increasing on $A$ if $f(x) \le f(y)$ for all $x < y$ in $A$. Show that if $f$ is increasing on $[a,b]$ and satisfies the intermediate value property (Def 4.5.3), then $f$ is continuous on $[a,b]$.
 
 \begin{solution}
-x<1
+
 \end{solution}
 
 
@@ -81,5 +95,11 @@ x<1
 Let $f$ be a continuous function on the closed interval $[0,1]$ with range also contained in $[0,1]$. Prove that $f$ must have a fixed point; that is, show $f(x) = x$ for at least one value of $x \in [0,1]$
 
 \begin{solution}
-x<1
+I will show that $f(x) = x$ exists. \\
+
+Since the range is contined in $[0,1]$ then there exists at least one point, $c \in [0,1]$, where $f(c) = x$. \\
+
+But since $x$ is also an element of the domain, and every element in the domain is mapped to the range. There will always exists a point $c$ in the domain such that $f(c) = c$, maps back to itself. Thus a fixed point exists.   
+
+Since the entire domain will be mapped to the range, whether is be only $c$ or a portion of $[0,1]$,  
 \end{solution}
