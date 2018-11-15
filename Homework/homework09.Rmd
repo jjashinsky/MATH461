@@ -3,7 +3,7 @@ title: "HW #9"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 author: "Jacob Jashinsky"
 class: "Math 461"
-hours: "1 Hours"
+hours: "2 Hours"
 section: "01"
 professor: "Lawrence Chilton"
 due: "`r format(Sys.time(), '%B %d, %Y')`"
@@ -46,8 +46,15 @@ Thus $f$ is uniformly continuous.
 b) Is the converse statement true? Are all uniformly continuous functions necessarily Lipschitz?
 
 \begin{solution}
-It is. A function is not uniformly continuous when it has an unbounded slope between two points. So when a function is uniformly continuous it must have a bounded slope.  
+The converse is not true. $f(x) = \sqrt{x}$ is uniformly continuous, but it is not Lipschitz.
+
+$$
+\frac{|\sqrt{x} - \sqrt{y}|}{|x-y|} = \frac{|\sqrt{x} - \sqrt{y}|}{|(\sqrt{x} - \sqrt{y})(\sqrt{x} + \sqrt{y})|} = \frac{1}{|\sqrt{x} + \sqrt{y})|}
+$$
+The above expression can be bounded by an $M$ except when $x=y=0$. Thus $f(x) = \sqrt{x}$ is not Lipschitz.
 \end{solution}
+
+\newpage
 
 
 <!------------------------------------------------------------------------------>
@@ -68,7 +75,7 @@ This range will always be 1, which will be closed because its an isolated point.
 b) A continuous function defined on a closed interval with a range equal to an open interval. 
 
 \begin{solution}
-If these intrvals were also bounded then by the intermediate value theorem this would be impossible. However we can consider $\mathbb{R}$ as a closed and open set. Therefore $f(x) = x$ is defined on a closed interval and maps to an open interval.    
+If these intervals were bounded then by the intermediate value theorem this would be impossible. However, if you let intervals be unbounded, then we can consider $\mathbb{R}$ as a closed and open set. Therefore $f(x) = x$ is defined on a closed set and maps to an open set.    
 \end{solution}
 
 
@@ -81,12 +88,15 @@ If these intrvals were also bounded then by the intermediate value theorem this 
 A function $f$ is increasing on $A$ if $f(x) \le f(y)$ for all $x < y$ in $A$. Show that if $f$ is increasing on $[a,b]$ and satisfies the intermediate value property (Def 4.5.3), then $f$ is continuous on $[a,b]$.
 
 \begin{solution}
+Let the function be strictly increasing on the domain, and satisfy the intermediate value property. This implies that for all $f(x) < L < f(y)$ there exist a $c$ such that $a < c < b$ and $f(c) = L$. \\ 
 
+Characterizations of Continuity says that for all $V_\epsilon(f(c))$, there exists a $V_\delta(c)$ with the property that $x \in V_\delta(c)$ implies $f(x) \in V_\epsilon(f(c))$. \\
+
+Because the intermediate value property is satisfied and the function is strictly increasing, then for any $\epsilon$ neighborhood around $f(c)$, it will always be possible to find a $\delta$ neighborhood around $c$. Thus the function must be continuous. 
 \end{solution}
 
 
 
-\newpage
 <!------------------------------------------------------------------------------>
 <!------------------------------- Question 04 ---------------------------------->
 <!------------------------------------------------------------------------------>
@@ -97,9 +107,7 @@ Let $f$ be a continuous function on the closed interval $[0,1]$ with range also 
 \begin{solution}
 I will show that $f(x) = x$ exists. \\
 
-Since the range is contined in $[0,1]$ then there exists at least one point, $c \in [0,1]$, where $f(c) = x$. \\
+Since the range is contained in $[0,1]$ and by the intermediate value theorem, there exists at least one point, $c \in [0,1]$, where $f(c) = x$. \\
 
-But since $x$ is also an element of the domain, and every element in the domain is mapped to the range. There will always exists a point $c$ in the domain such that $f(c) = c$, maps back to itself. Thus a fixed point exists.   
-
-Since the entire domain will be mapped to the range, whether is be only $c$ or a portion of $[0,1]$,  
+But since $x$ is also an element of the domain, and every element in the domain is mapped to the range. There will always exists a point $c$ in the domain such that $f(c) = c$, maps back to itself. Thus a fixed point exists. 
 \end{solution}
