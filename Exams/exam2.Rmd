@@ -1,0 +1,149 @@
+---
+title: "Exam #2"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+author: "Jacob Jashinsky"
+class: "Math 461"
+hours: "2 Hours"
+section: "01"
+professor: "Lawrence Chilton"
+due: "`r format(Sys.time(), '%B %d, %Y')`"
+topic: "1,2"
+misc: "3,4"
+title-page: false
+output: HomeworkBYUI::real_analysis_pdf
+---
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 01 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{1}
+
+Use the definition of continuity to show that $f(x) = ax + b$ is continuous at every point $c \in \mathbb{R}$
+
+\begin{solution}
+Let $c \in \mathbb{R}$ and $\epsilon > 0$. \\
+
+$$
+\begin{aligned}
+|f(x) - f(c) | &< \epsilon \\
+|(ax + b) - (ac + b) | &< \epsilon \\
+|ax - ac| &< \epsilon \\
+|x - c| &< \epsilon/|a| \\
+\end{aligned}
+$$
+Now let $\delta = \epsilon/|a| > 0$, and consider the following, 
+
+$$
+\begin{aligned}
+|x-c| &< \delta \\
+|x-c| &< \epsilon/|a| \\
+|ax - ac| &< \epsilon \\
+|ax - b + b - ac| &< \epsilon \\
+|(ax + b) - (ac + b) | &< \epsilon \\
+|f(x) - f(c) | &< \epsilon \\
+\end{aligned}
+$$
+Thus by definition of continuity, $f$ is continuous at $c \in \mathbb{R}$. 
+\end{solution}
+
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 02 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{2}
+
+Use the definition of compactness to show that if set $K \subseteq \mathbb{R}$ is closed and bounded, then it is compact. 
+
+\begin{solution}
+The definition of compactness states that every sequence in $K$ must a have a subsequence that converges to a limit that is also in $K$. \\
+
+Because $K$ is bounded it is true that every sequence in $K$ will also be bounded. Bolzano-Weierstrass Theorem states that every bounded sequence will have a convergent subsequence. \\
+
+The only thing left to prove is that the limit of those subsequences are in $K$. \\
+
+Because of the definition of a closed set, it is true that $K$ contains all of its limit points. Theorem 3.2.5 defines $x$ as a limit point of $K$ if $x = \lim k_n$ for some sequence $(k_n)$ contained in $K$. \\
+
+Since $K$ contains all of its limit points and every sequence in $K$ will converge to a limit point, it follows that every subsequence will converge to a limit in $K$. \\
+
+Thus $K$ is compact. 
+
+\end{solution}
+
+\newpage
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 03 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{3}
+
+Use the definition of continuity to show that $f(x) = x^3$ is continuous for all real numbers $x \ge 0$.
+
+\begin{solution}
+Let $\epsilon > 0$ and $c > 0$. 
+
+$$
+\begin{aligned}
+|f(x) - f(c)| &< \epsilon \\
+|x^3 - c^3| &< \epsilon \\
+|x - c||x^2 + xc + c^2| &< \epsilon \\
+|x-c| &< \frac{\epsilon}{|x^2 + xc + c^2|}
+\end{aligned}
+$$
+Since $f$ is only defined for $x \ge 0$ and $c$ is positive it follows that,
+
+$$
+|x-c| < \frac{\epsilon}{|x^2 + xc + c^2|} \le \frac{\epsilon}{c^2}
+$$
+Therefore, let $\delta = \epsilon/c^2$.
+
+$$
+\begin{aligned}
+|x-c| &< \delta \\
+|x-c| &< \frac{\epsilon}{c^2} \\
+|x-c| &< \frac{\epsilon}{|x^2 + xc + c^2|} \le \frac{\epsilon}{c^2} \\
+|x-c||x^2 + xc + c^2| &< \epsilon \\
+|x^3 - c^3| &< \epsilon \\
+|f(x) - f(c)| &< \epsilon \\
+\end{aligned}
+$$
+Thus $f$ is continuous for all $x \ge 0$. 
+\end{solution}
+
+
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 04 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{4}
+
+Assume that $f:[0,\infty] \to \mathbb{R}$ is continuous at every point in its domain. Show that if there exists $b > 0$ such that $f$ is uniformly continuous on the set $[b.\infty)$, then $f$ is uniformly continuous on $[0,\infty)$
+
+\begin{solution}
+Since $b > 0$, $f$ is, at the moment, known to be uniform on all postive real numbers except $0$ itself. \\
+
+I must show that the point $0$ will require the same or larger $\delta$ for any given $\epsilon$ defined for the set $[b,\infty)$. \\
+
+$f$ is uniform on the set $[b.\infty)$, meaning that $\delta$ is not dependent on a point $c$. \\
+
+Since it is also known that $f$ is defined on $0$ and $b$ is allowed to be arbitrarly close to $0$. It follows that no smaller $\delta$ is needed if $0$ was included in the set. 
+\end{solution}
+
+
+\newpage
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 05 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{5}
+
+Assume $h : \mathbb{R} \to \mathbb{R}$ is continuous on $\mathbb{R}$ and let $K = \{x : h(x) = 0 \}$. Show that $K$ is a closed set.
+
+\begin{solution}
+I must show that $K$ is either empty, equivalent to $\mathbb{R}$, or only contains isolated points. \\
+
+$K$ will be empty if $h(X) \neq 0 $. In this case $K$ will closed. \\
+
+$K$ will be equivalent to $\mathbb{R}$ when $h(x) = 0$ for all $x \in \mathbb{R}$. $K$ is also closed in this case.  \\
+
+The only other option is for $K$ to contain only isolated points. \\
+
+Since the function is continuous the Intermediate Value Theorem implies that when $L = 0$, there exists a point, $c$, such that $f(c) = 0$, and any other value greater or less than $c$ will result in a value greater or less than $f(c) = 0$. \\ 
+
+It follows that in this situation $K$ will only contain isolated points and is closed. 
+\end{solution}
+
