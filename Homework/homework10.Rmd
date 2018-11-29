@@ -3,12 +3,12 @@ title: "HW #10"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 author: "Jacob Jashinsky"
 class: "Math 461"
-hours: "0.5 Hours"
+hours: "4.0 Hours"
 section: "01"
 professor: "Lawrence Chilton"
 due: "`r format(Sys.time(), '%B %d, %Y')`"
 topic: "5.2.3, 5.2.5, 5.2.11"
-misc: "5.3.1, 5.3.3, 5.3.7, 5.3.11"
+misc: "5.3.1, 5.3.3, 5.3.7"
 title-page: false
 output: HomeworkBYUI::real_analysis_pdf
 ---
@@ -26,7 +26,7 @@ g'(c) &= \lim_{x \to c} \frac{1/x-1/c}{x-c} \\
 &= \lim_{x \to c} \frac{\frac{c-x}{xc}}{x-c} \\
 &= \lim_{x \to c} \frac{\frac{-(x-c)}{xc}}{x-c} \\
 &= \lim_{x \to c} \frac{-1}{xc} \\
-&= \frac{-1}{c^2}
+&= \frac{-1}{c^2}, \ \text{where} \ x \ne 0
 \end{aligned}
 $$
 \end{solution}
@@ -36,9 +36,18 @@ b) Combine the result in part (a) with the Chain Rule to supply a proof for part
 
 
 \begin{solution}
-x<1
+$$
+\begin{aligned}
+\frac{d}{dx}(f/g) &= f' \cdot \frac{1}{g} + f \cdot \left( \frac{1}{g} \right)' \\
+&= \frac{f'}{g} + f \left( \frac{-1}{g^2} \right)g' \ \ (\text{after applying ther chain rule}) \\
+&= \frac{f'}{g} +  \left( \frac{-f}{g^2} \right)g' \\
+&= \frac{gf'}{g^2} + \frac{-fg'}{g^2} \\
+&= \frac{gf'-fg'}{g^2} \\
+\end{aligned}
+$$
 \end{solution}
 
+\newpage
 
 c) Supply a direct proof of thm. 5.2.4 (iv) by algebraically manipulating the difference quotient for $(f/g)$ in a style similar to the proof of thm. 5.2.4 (iii).
 
@@ -55,11 +64,11 @@ $$
 &= \lim_{x \to c} \frac{f(x)/g(x)-f(c)/g(c)}{(x-c)} \\
 \end{aligned}
 $$
+
 The result becomes the definition of a derivative. 
 \end{solution}
 
 
-\newpage
 <!------------------------------------------------------------------------------>
 <!------------------------------- Question 02 ---------------------------------->
 <!------------------------------------------------------------------------------>
@@ -75,6 +84,7 @@ f(X=x)=\left\{
 \end{array} 
 \right.
 $$
+
 a) For which values of $a$ is $f$ continuous at zero?
 
 \begin{solution}
@@ -84,13 +94,13 @@ $a>0$
 b) For which values of $a$ is $f$ differentiable at zero? In this case, is the derivative function continuous?
 
 \begin{solution}
-$x>1$. It is continuous
+$a>1$. It is continuous
 \end{solution}
 
 c) For which values of $a$ is $f$ twice-differentiable?
 
 \begin{solution}
-$x>2$
+$a>2$
 \end{solution}
 
 \newpage
@@ -109,14 +119,14 @@ Consider $g'(a) < 0$, this means,
 $$
 \lim_{x \to a} \frac{g(x) - g(a)}{x-a} < 0
 $$
-Since $x \in (a,b)$, then $x > a$. This means that the denominator is postive. For the limit to be less than zero (negative) it must be true that $g(x) < g(a)$.
+Since $x \in (a,b)$, then $x > a$. This means that the denominator is positive. For the limit to be less than zero (negative) it must be true that $g(x) < g(a)$.
 
 Now consider $g'(b) > 0$, which implies,
 
 $$
 \lim_{x \to b} \frac{g(x) - g(b)}{x-b} > 0
 $$
-Since $x \in (a,b)$, then $x < b$. This means that the denominator is negative. For the limit to be greater than zero (positve) it must be true that $g(x) < g(b)$.
+Since $x \in (a,b)$, then $x < b$. This means that the denominator is negative. For the limit to be greater than zero (positive) it must be true that $g(x) < g(b)$.
 \end{solution}
 
 b) Now complete the proof of Darboux's Theorem started earlier.
@@ -146,19 +156,33 @@ for all $x \ne y$ in $A$.
 a) Show that if $f$ is differentiable on a closed interval $[a,b]$ and if $f'$ is continuous on $[a,b]$, then $f$ is Lipschitz on $[a,b]$. 
 
 \begin{solution}
-$\left| \frac{f(x)-f(y)}{x-y} \right| = |f'(c)|$, where $c \in [a,b]$. So I must show that $|f'(c)| < M$ for all $c \in [a,b]$ \\
+Since $f$ is continuous and differentiable on the closed interval, then $\left| \frac{f(x)-f(y)}{x-y} \right| = |f'(c)|$, where $c \in [a,b]$. So if $|f'(c)| \le M$ for all $c \in [a,b]$, then the function is Lipschitz \\
 
-$f'$ is continuous so I know that there exist an $\epsilon - \delta$, such that $|f'(x) - f'(c)| < \epsilon$. \\
+$f'$ is continuous so on a compact set, so the Extreme Value Theorem implies that $f'$ attains a minimum and maximum value on the interval. Let the min and max be x and y respectively. \\
 
-$[a,b]$ is closed and bounded so the Exteme Value theorem and the Interior Extremum Theorem together implies that there exists an $x \in [a,b]$ where $f'(x) = 0$. \\
+Let $M = \max\{|x|, |y| \}$. There is no value of $f'$ that will exceed $M$. Therefore, $\left| \frac{f(x)-f(y)}{x-y} \right| = |f'(c)| \le M$ for all $c \in [a,b]$ and $f$ is Lipschitz.  
 
-This means that at some point $|f'(c) - 0| < \epsilon$ for all $c \in [a,b]$. Thus There exists an $\epsilon < M$ that will work for all of $f'(c)$. Thus, $f$ is Lipschitz.    
 \end{solution}
 
 b) Review the definition of a contractive function in Exercise 4.3.11. If we add the assumption that $|f'(x) < 1|$ on $[a,b]$, does if follow that $f$ is contractive on this set?
 
 \begin{solution}
-x<1
+By definition, $f$ is a contractive function if there exists a $c$ such that $0 < c < 1$ and 
+$$
+|f(x) - f(y)| \le c|x - y|
+$$
+for all $x,y \in \mathbb{R}$ \\
+
+Let the assumption be true.
+
+$$
+\begin{aligned}
+|f'(x)| &< 1 \\
+\left| \frac{f(x) - f(y)}{x-y} \right| &< 1 \\
+|f(x) - f(y)| &< |x - y|
+\end{aligned}
+$$
+Since the left is strictly less than the right, then we know that there exists a $0 < c < 1$ that will make the function contractive. 
 \end{solution}
 
 \newpage
@@ -172,9 +196,21 @@ Let $h$ be a differentiable function defined on the interval $[0,3]$, and assume
 a) Argue that there exists a point $d \in [0,3]$ where $h(d) = d$ 
 
 \begin{solution}
-Theorem 5.2.3 states that if the function is differentiable at a point then the function is continuous at that point. \\
+Let $g(d) = h(d) - d$. This implies the following:
 
+$$
+\begin{aligned}
+&g(0) = h(0) - 0 = 1 \\
+&g(1) = h(1) - 1 = 1 \\
+&g(3) = h(3) - 3 = -1 
+\end{aligned}
+$$
 
+The Intermediate Value Theorem can applies because $g$ is continuous by the Algebraic continuity Theorem.    \\
+
+This means that there exists a point $d$ such that $g(d) = 0$. \\
+
+Since $g(d) = h(d) - d$ this implies $0 = h(d) - d$ and finally, $h(d) = d$. 
 \end{solution}
 
 b) Argue that at some point $c$ we have $h'(c) = 1/3$.
@@ -201,9 +237,10 @@ and
 $$
 h'(c) = \frac{h(3) - h(1)}{3-1}  = \frac{2-2}{3-1} = 0 = h'(c)
 $$
+
 The slope of the function at some point $c \in (0,1)$ is 1 but the slope of the function at some point $d \in (1,3)$ is 0. \\
 
-Because the function is differentiable and continuous we know that must be a point between $c$ and $d$ such that $h'(x) = 1/4$.
+Because the function is differentiable and continuous we know by Darboux Theorem that there must be a point between $c$ and $d$ such that $h'(x) = 1/4$.
 \end{solution}
 
 \newpage
@@ -215,35 +252,15 @@ Because the function is differentiable and continuous we know that must be a poi
 A fixed point of a function $f$ is a value $x$ where $f(x) = x$. show that if $f$ is differentiable on an interval with $f'(x) \ne 1$, then $f$ can have at most one fixed point. 
 
 \begin{solution}
-x<1
+We will start by assuming there are two or more fixed points at $a$ and $b$. Let $f$ be differentiable on an interval and $f'(x) \ne 1$. \\
+
+Because $f$ is differentiable it is also continuous. The Mean Value Theorem then applies. \\
+
+$$
+\left|\frac{f(b) - f(a)}{b-a} \right| = f'(c) \\
+\left|\frac{b - a}{b-a} \right| = f'(c) \\
+1 = f'(c) \\
+$$
+However it was assumed from the beginning that $f'(x) \ne 1$. This is a contradiction.
+Therefore, the function can have at most 1 fixed point. 
 \end{solution}
-
-\newpage
-<!------------------------------------------------------------------------------>
-<!------------------------------- Question 07 ---------------------------------->
-<!------------------------------------------------------------------------------>
-\exercise{5.3.11}
-
-a) Use the Generalized Mean Value theorem to furnish a proof of the $0/0$ case if L'Hospital's Rule.
-
-\begin{solution}
-x<1
-\end{solution}
-
-b) If we keep the first part of the hypothesis of Theorem 5.3.6 the same but we assume that 
-
-$$
-\lim_{x \to a} \frac{f'(x)}{g'(x)} = \infty 
-$$
-does it necessarily follow that 
-
-$$
-\lim_{x \to a} \frac{f(x)}{g(x)} = \infty \ ?
-$$
-
-\begin{solution}
-x<1
-\end{solution}
-
-
-
