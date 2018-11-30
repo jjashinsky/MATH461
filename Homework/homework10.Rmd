@@ -94,7 +94,7 @@ $a>0$
 b) For which values of $a$ is $f$ differentiable at zero? In this case, is the derivative function continuous?
 
 \begin{solution}
-$a>1$. It is continuous
+$a>1$. The derivative is continuous in this case.
 \end{solution}
 
 c) For which values of $a$ is $f$ twice-differentiable?
@@ -119,14 +119,14 @@ Consider $g'(a) < 0$, this means,
 $$
 \lim_{x \to a} \frac{g(x) - g(a)}{x-a} < 0
 $$
-Since $x \in (a,b)$, then $x > a$. This means that the denominator is positive. For the limit to be less than zero (negative) it must be true that $g(x) < g(a)$.
+Since $x \in (a,b)$ and $x > a$, this means that the denominator is positive. For the limit to be less than zero (negative) it must be true that $g(x) < g(a)$.
 
 Now consider $g'(b) > 0$, which implies,
 
 $$
 \lim_{x \to b} \frac{g(x) - g(b)}{x-b} > 0
 $$
-Since $x \in (a,b)$, then $x < b$. This means that the denominator is negative. For the limit to be greater than zero (positive) it must be true that $g(x) < g(b)$.
+Since $x \in (a,b)$ and $x < b$, this means that the denominator is negative. For the limit to be greater than zero (positive) it must be true that $g(x) < g(b)$.
 \end{solution}
 
 b) Now complete the proof of Darboux's Theorem started earlier.
@@ -158,7 +158,7 @@ a) Show that if $f$ is differentiable on a closed interval $[a,b]$ and if $f'$ i
 \begin{solution}
 Since $f$ is continuous and differentiable on the closed interval, then $\left| \frac{f(x)-f(y)}{x-y} \right| = |f'(c)|$, where $c \in [a,b]$. So if $|f'(c)| \le M$ for all $c \in [a,b]$, then the function is Lipschitz \\
 
-$f'$ is continuous so on a compact set, so the Extreme Value Theorem implies that $f'$ attains a minimum and maximum value on the interval. Let the min and max be x and y respectively. \\
+$f'$ is continuous on a compact set, so the Extreme Value Theorem implies that $f'$ attains a minimum and maximum value on the interval. Let the min and max be $x$ and $y$ respectively. \\
 
 Let $M = \max\{|x|, |y| \}$. There is no value of $f'$ that will exceed $M$. Therefore, $\left| \frac{f(x)-f(y)}{x-y} \right| = |f'(c)| \le M$ for all $c \in [a,b]$ and $f$ is Lipschitz.  
 
@@ -206,7 +206,7 @@ $$
 \end{aligned}
 $$
 
-The Intermediate Value Theorem can applies because $g$ is continuous by the Algebraic continuity Theorem.    \\
+The Intermediate Value Theorem can apply because $g$ is continuous by the Algebraic continuity Theorem.    \\
 
 This means that there exists a point $d$ such that $g(d) = 0$. \\
 
@@ -257,9 +257,11 @@ We will start by assuming there are two or more fixed points at $a$ and $b$. Let
 Because $f$ is differentiable it is also continuous. The Mean Value Theorem then applies. \\
 
 $$
+\begin{aligned}
 \left|\frac{f(b) - f(a)}{b-a} \right| = f'(c) \\
 \left|\frac{b - a}{b-a} \right| = f'(c) \\
 1 = f'(c) \\
+\end{aligned}
 $$
 However it was assumed from the beginning that $f'(x) \ne 1$. This is a contradiction.
 Therefore, the function can have at most 1 fixed point. 
