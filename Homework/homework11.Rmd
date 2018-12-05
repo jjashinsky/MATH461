@@ -1,0 +1,324 @@
+---
+title: "HW #11"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+author: "Jacob Jashinsky"
+class: "Math 461"
+hours: "0 Hours"
+section: "01"
+professor: "Lawrence Chilton"
+due: "`r format(Sys.time(), '%B %d, %Y')`"
+topic: "5.3.11a, 6.2.1, 6.2.3"
+misc: "6.2.7, 6.3.3, 6.3.4, 6.3.5"
+title-page: false
+output: HomeworkBYUI::real_analysis_pdf
+---
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 01 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{5.3.11a}
+
+Use the Generalized Mean Value Theorem to furnish a proof of the $0/0$ case of L'Hospital's Rule (Theorem 5.3.6) 
+
+A large portion of this work was adapted from https://www.math.hmc.edu/calculus/tutorials/lhopital/sketch_proof.html
+\begin{solution}
+The Generalized Mean Value theorem states that if $f$ and $g$ are continuous on a closed interval $[a,b]$ and differentiable on the open interval $(a,b)$, then there exists a point $c \in (a,b)$ where 
+$$
+[f(b) - f(a)]g'(c) = [g(b) - g(a)]f'(c)
+$$
+
+For this proof we will assume that that if $f$ and $g$ are continuous on a closed interval $[a,a+h]$ and differentiable on the open interval $(a,a+h)$, where $h >0$. \\
+
+It will also be assumed that $f(a) = g(a) = 0$ and $g'(x) \ne 0$ for all $x \ne a$. Further, let $\lim_{x \to a^+} \frac{f'(x)}{g'(x)} = L$ \\
+
+The generalized mean value theorem applies so it can be said that there exists a $c \in (a,b)$ such that 
+
+$$
+\frac{f(a+h) - f(a)}{g(a+h) -g(a)} = \frac{f'(c)}{g'(c)}.
+$$
+Since $f(a) = g(a) = 0$, it is also that 
+
+$$
+\frac{f(a+h) - f(a)}{g(a+h) -g(a)} = \frac{f(a+h)}{g(a+h)} = \frac{f'(c)}{g'(c)}.  
+$$
+
+If $h \to 0+$ from the right then the the interval would become smaller and the $c$ will get closer to the left end of the interval, $a$.
+
+$$
+\lim_{h \to 0^+} \frac{f'(c)}{g'(c)} = \lim_{x \to a^+} \frac{f'(x)}{g'(x)}
+$$
+
+Similarly it can be said that 
+
+$$
+\lim_{h \to 0^+} \frac{f(a)}{g(a)} = \lim_{x \to a^+} \frac{f(x)}{g(x)}
+$$
+
+Now since it is true that $\frac{f(a+h)}{g(a+h)} = \frac{f'(c)}{g'(c)}$, it follows that we can equate the two equations above as follows,
+
+$$
+\lim_{x \to a^+} \frac{f'(x)}{g'(x)} =  \lim_{x \to a^+} \frac{f(x)}{g(x)} = L.
+$$
+The same argument can be applied with left hand limits if the interval was $(a+h, a)$. Thus the limits together finish the proof. 
+\end{solution}
+
+
+\newpage
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 02 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{6.2.1}
+
+Let 
+
+$$
+f_n(x) = \frac{nx}{1+nx^2}
+$$
+
+a) Find the point-wise limit of $(f_n)$ for all $n \in (0, \infty)$.
+
+\begin{solution}
+$$
+f = \lim \frac{nx}{1+nx^2} = \lim \frac{x}{x^2} = \frac{1}{x}
+$$
+\end{solution}
+
+
+
+b) Is the convergence uniform on $(0, \infty)$?
+
+\begin{solution}
+$$
+\begin{aligned}
+|f_n(x) - f(x)| &< \epsilon \\
+\left| \frac{nx}{1+nx^2} - \frac{1}{x} \right| &< \epsilon \\
+\left| \frac{-1}{x+nx^3} \right| &< \epsilon \\
+|x+nx^3| &> 1/\epsilon \\
+n &> \frac{1}{x^2} \left(\frac{1}{\epsilon x} - 1 \right)
+\end{aligned}
+$$
+
+Given any $\epsilon$, when $x$ is really large, then a finite $N$ can be found. However, is $x$ is really close to $0$ then no $N$ can be found that would make the statement true. Therefore, $(f_n)$ does not converge uniformly on the interval $(0,\infty)$.     
+\end{solution}
+
+
+c) Is the convergence uniform on $(0, 1)$?
+
+\begin{solution}
+Once again note that given $N > \frac{1}{x^2} \left(\frac{1}{\epsilon x} - 1 \right)$, it would be impossible to find an $N$ when $x$ is close to $0$. $(f_n)$ is not uniformly convergent on the interval $(0,1)$. 
+\end{solution}
+
+
+d) Is the convergence uniform on $(1, \infty)$?
+
+\begin{solution}
+If $x = 1$, then an $N$ can be found. When $x$ is really large, then an $N$ can also be found for any given $\epsilon$. 
+\end{solution}
+
+
+\newpage
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 03 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{6.2.3}
+
+For each $n \in \mathbb{N}$ and $x \in [0,\infty)$. let 
+
+$$
+g_n(x) = \frac{x}{1+x^n} \ \ \ \text{and} \ \ \  
+h_n(x)=\left\{
+\begin{array}{ll}
+      1 \ , &  \text{if} \ x \ge 1/n  \\
+      nx \ , & \text{if} \ 0 \le x < 1/n
+\end{array} 
+\right.
+$$
+
+Answer the following questions for the sequences $(g_n)$ and $(h_n)$:
+
+a) Find the point-wise limit on $[0,\infty)$.
+
+\begin{solution}
+x<1
+\end{solution}
+
+
+
+b) Explain how we know that the convergence cannot be uniform on $[0,\infty)$.
+
+\begin{solution}
+x<1
+\end{solution}
+
+
+
+c) Choose a smaller set over which the convergence is uniform and supply an argument to show that this is indeed the case. 
+
+
+\begin{solution}
+x<1
+\end{solution}
+
+
+\newpage
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 04 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{6.2.7}
+
+Let $f$ be uniformly continuous on all of $\mathbb{R}$, and define a sequence a sequence of functions by $f_n(x) = f(x+1/n)$. Show that $f_n \to f$ uniformly. Give an example to show that this proposition fails if $f$ is only assumed to be continuous and not uniformly continuous on $\mathbb{R}$. 
+
+
+\begin{solution}
+x<1
+\end{solution}
+
+
+\newpage
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 05 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{6.3.3}
+
+Consider the sequence of functions
+
+$$
+f_n(x) = \frac{x}{1 + nx^2}.
+$$
+
+a) find the point on $\mathbb{R}$ where each $f_n(x)$ attains its maximum and minimum value. Use this to prove $(f_n)$ converges uniformly on $\mathbb{R}$. What is the limit function?
+
+\begin{solution}
+A function will attain its maximum and minumum values when $f_n' = 0$. 
+$$
+f_n' = \frac{(1+nx^2)(1) - (x)(2nx)}{(1+nx^2)^2} = \frac{1-nx^2}{(1+nx^2)^2} 
+$$
+Now to obtain the points where each $f_n$ reachs a maximum and minimum let $f_n' = 0$.
+
+$$
+\begin{aligned}
+\frac{1-nx^2}{(1+nx^2)^2} &= 0 \\
+1-nx^2 &= 0 \\
+x^2 &= 1/n \\
+x &= \pm \sqrt{1/n}
+\end{aligned}
+$$
+If $f'_n(0) = \mathbb{R}^-$. If $f'_n(a) = \mathbb{R}^+$, where $-\sqrt{1/n} < a < \sqrt{1/n} $. 
+Thus $(f_n)$ attains a minimum when $a = -\sqrt{1/n}$ and a maximum when $a = \sqrt{1/n}$. \\
+
+As $n$ gets large, then $f_n$ will attain maximums and minimums when $a$ is close to 0. However, as $a$ gets closer 0, then $f_n(a)$ also gets closer to 0. \\
+
+This means that the sequence functions are being bounded by 0, $0 < f_n(x) < 0$. Thus we see that for any given $\epsilon > 0$ it is always possible to find an $N$ such that $|f_n(x) - 0| < \epsilon$, and $(f_n) \to 0$ uniformly.       
+\end{solution}
+
+
+b) Let $f = \lim f_n$. Compute $f'_n(x)$ and find all the values of $x$ for which $f'(x) = \lim f'_n(x)$.
+
+\begin{solution}
+x<1
+\end{solution}
+
+
+
+\newpage
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 06 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{6.3.4}
+
+Let
+
+$$
+h_n(x) = \frac{\sin(nx)}{\sqrt{n}}
+$$
+Show that $h_n \to 0$ uniformly on $\mathbb{R}$ but that the sequence of derivatives $(h'_n)$ diverges for every $x \in \mathbb{R}$.
+
+
+\begin{solution}
+Let $\epsilon > 0$. 
+$$
+\begin{aligned}
+\left| \frac{\sin(nx)}{\sqrt{n}} - 0 \right| &< \epsilon \\
+\frac{\sqrt{n}}{\sin(nx)} &> \frac{1}{\epsilon} \\
+\sqrt{n} &> \frac{\sin(nx)}{\epsilon} \\
+n &> \left(\frac{\sin(nx)}{\epsilon} \right)^2 \\
+\end{aligned}
+$$
+Since $\sin(nx)$ is bounded between -1 and 1, it is logical that there must exist an $N>\left(\frac{1}{\epsilon} \right)^2$. \\
+
+To prove that it converges uniformly it must be shown that whenever $n > N > \left(\frac{1}{\epsilon} \right)^2$ then $|h_n(x) - h(x) | < \epsilon$.
+
+$$
+\begin{aligned}
+n &> \left(\frac{1}{\epsilon} \right)^2 \\
+n &> \left(\frac{\sin(nx)}{\epsilon} \right)^2 \\
+\sqrt{n} &> \frac{\sin(nx)}{\epsilon} \\
+\frac{\sqrt{n}}{\sin(nx)} &> \frac{1}{\epsilon} \\
+\left| \frac{\sin(nx)}{\sqrt{n}} - 0 \right| &< \epsilon 
+\end{aligned}
+$$
+Thus $(h_n) \to f$ uniformly
+
+\end{solution}
+
+
+\newpage
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 07 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{6.3.5}
+
+Let 
+
+$$
+g_n(x) = \frac{nx + x^2}{2n},
+$$
+and set $g(x) = \lim g_n(x)$. Show that $g$ is differentiable in two ways:
+
+a) Compute $g(x)$ by algebraically taking the limit as $n \to \infty$ and then find $g'(x)$.
+
+\begin{solution}
+$$
+\lim \frac{nx + x^2}{2n} = \lim \frac{x}{2} = \frac{x}{2}
+$$
+Since $g(x) = x/2$, then $g'(x) = 1/2$.
+\end{solution}
+
+
+b) Compute $g'(x)$ for each $n \in \mathbb{N}$ and show that the sequence of derivatives $(g'_n)$ converges uniformly on every interval $[-M,M]$. Use Theorem 6.3.3 to conclude $g'(x) = \lim g'(x)$.
+
+\begin{solution}
+To take the derivative, the quotient rule will be applied.
+
+$$
+\frac{d}{dx} \left[ \frac{nx + x^2}{2n} \right] = \frac{2n(n) - (nx + x^2)(0)}{4n^2} = \frac{2n^2}{4n^2} = \frac{1}{2} 
+$$
+No limit is necessary at the end of the derivative, but we see that limit of $\lim g'_n(x) = 1/2 = g'(x)$.  
+\end{solution}
+
+
+c) Repeat parts (a) and (b) for the sequence $f_n(x) = (nx^2 + 1)/(2n + x)$.
+
+\begin{solution}
+First I will find the limit of $(f_n)$
+
+$$
+\lim \frac{nx^2 + 1}{2n + x} = \lim \frac{x^2}{2} = \frac{x^2}{2}
+$$
+Since $f(x) = x^2/2$, then $f'(x) = x$. Now I will find $f'_n(x)$.
+
+$$
+\begin{aligned}
+f'_n(x) = \frac{d}{dx} \left[ \frac{nx^2 + 1}{2n + x}  \right] &= \frac{(2n+x)(2nx) - (nx^2+1)(1)}{(2n+x)^2} \\
+&= \frac{4xn^2 + 2nx^2 - nx^2 - 1}{4n^2 + 4nx + x^2} \\
+&= \frac{4xn^2 + nx^2 - 1}{4n^2 + 4nx + x^2} 
+\end{aligned}
+$$
+Now I can take a limit of $f'_n(x)$ to find $f'(x)$. 
+
+$$
+\lim \frac{4xn^2 + nx^2 - 1}{4n^2 + 4nx + x^2}  = \lim \frac{8xn + x^2}{8n + 4x} = \lim \frac{8x}{8} = x
+$$
+
+We see that both methods produce the same derivative.
+
+\end{solution}
