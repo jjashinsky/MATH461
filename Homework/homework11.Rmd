@@ -3,7 +3,7 @@ title: "HW #11"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 author: "Jacob Jashinsky"
 class: "Math 461"
-hours: "0 Hours"
+hours: "7 Hours"
 section: "01"
 professor: "Lawrence Chilton"
 due: "`r format(Sys.time(), '%B %d, %Y')`"
@@ -140,7 +140,25 @@ Answer the following questions for the sequences $(g_n)$ and $(h_n)$:
 a) Find the point-wise limit on $[0,\infty)$.
 
 \begin{solution}
-x<1
+$$
+\lim g_n(x) = \left\{
+\begin{array}{ll}
+      x \ , & \text{if} \ 0 \le x < 1 \\
+      1/2 \ , & \text{if} \ x = 1 \\
+      0 \ , &  \text{if} \ x > 1
+\end{array} 
+\right.
+$$
+and also, 
+
+$$
+\lim h_n(x)=\left\{
+\begin{array}{ll}
+      0 \ , &  \text{if} \ x = 0  \\
+      1 \ , & \text{if} \ x > 0
+\end{array} 
+\right.
+$$
 \end{solution}
 
 
@@ -148,7 +166,11 @@ x<1
 b) Explain how we know that the convergence cannot be uniform on $[0,\infty)$.
 
 \begin{solution}
-x<1
+The Contiuous Limit Theorem states that given a uniformly convergent sequence of functions, if $(f_n)$ is continuous at $c$, then $f$ is continuous at $c$. \\
+
+We see that $(f_n)$ and $(h_n)$ are both continuous at a point $c$ but where $f$ and $g$ are not continuous at $c$. \\
+
+The conclusion is false even though the hypotheis held true. This happened because the assumption of converging uniformly was not properly met.  
 \end{solution}
 
 
@@ -157,7 +179,17 @@ c) Choose a smaller set over which the convergence is uniform and supply an argu
 
 
 \begin{solution}
-x<1
+Define $(g_n)$ for the domain $x=1$. The limit is then equal to $1/2$. Now let $\epsilon > 0$ and $n > N$.
+
+$$
+|f_n(x) - f| = \left| \frac{x}{1+x^n} - \frac{1}{2} \right| = \left| \frac{1}{1+1^n} - \frac{1}{2} \right|  = 0 < \epsilon
+$$
+
+Define $(h_n)$ on the domain $x\ge1$. The limit is then equal to $1$. Now let $\epsilon > 0$ and $n > N \ge 1$.
+
+$$
+|h_n(x) - h| = \left| 1 - 1 \right|  = 0 < \epsilon
+$$
 \end{solution}
 
 
@@ -184,10 +216,18 @@ $$
 $$
 Thus $(f_n) \to f$ uniformly. 
 
+The next step will be a proof by contradiction. Assume the function $f=1/x$ on the domain $x>0$ is uniformly continuous.   
+
 $$
-f(1 + 1/n) = f_n(x) \\
-(x+1/n)^3 = f_n(x)
+f_n(x) = f(1 + 1/n) = \frac{1}{x+1/n} = \frac{n}{nx+1}
 $$
+Since the function is uniform Cauchy Criterion for Uniform Convergence applies, which implies that for every $\epsilon > 0$ there exists an $N$ such that whenever $m,n > N$ implies $|f_n(x) - f_m(x)| < \epsilon$.
+
+$$
+\left| \frac{n}{nx+1} - \frac{m}{mx+1} \right| < \epsilon
+$$
+
+However this statement cannot be true for all $\epsilon$. No $N$ can be found when $x$ is arbitrarly close to 0. Therefore $f$ cannot be uniformly convergent.   
 \end{solution}
 
 
@@ -324,7 +364,6 @@ $$
 $$
 Since $g(x) = x/2$, then $g'(x) = 1/2$.
 \end{solution}
-
 
 b) Compute $g'(x)$ for each $n \in \mathbb{N}$ and show that the sequence of derivatives $(g'_n)$ converges uniformly on every interval $[-M,M]$. Use Theorem 6.3.3 to conclude $g'(x) = \lim g'(x)$.
 
