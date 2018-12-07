@@ -111,7 +111,9 @@ Once again note that given $N > \frac{1}{x^2} \left(\frac{1}{\epsilon x} - 1 \ri
 d) Is the convergence uniform on $(1, \infty)$?
 
 \begin{solution}
-If $x = 1$, then an $N$ can be found. When $x$ is really large, then an $N$ can also be found for any given $\epsilon$. 
+When $x$ is really large, $N > \frac{1}{x^2} \left(\frac{1}{\epsilon x} - 1 \right)$ then we see that any $N$ will do because the right side of the inequality will becoming negative. \\
+
+So the smaller the $x$ will require a larger $N$. So this means that when $x=1$ we will require an $N$ such that $N > \left(\frac{1}{\epsilon} - 1 \right)$ for any given $\epsilon >0$. Thus it converges uniformly on the interval $(1, \infty)$.
 \end{solution}
 
 
@@ -165,11 +167,27 @@ x<1
 <!------------------------------------------------------------------------------>
 \exercise{6.2.7}
 
-Let $f$ be uniformly continuous on all of $\mathbb{R}$, and define a sequence a sequence of functions by $f_n(x) = f(x+1/n)$. Show that $f_n \to f$ uniformly. Give an example to show that this proposition fails if $f$ is only assumed to be continuous and not uniformly continuous on $\mathbb{R}$. 
+Let $f$ be uniformly continuous on all of $\mathbb{R}$, and define a sequence of functions by $f_n(x) = f(x+1/n)$. Show that $f_n \to f$ uniformly. Give an example to show that this proposition fails if $f$ is only assumed to be continuous and not uniformly continuous on $\mathbb{R}$. 
 
 
 \begin{solution}
-x<1
+Let $f$ be uniform and $f_n(x) = f(x+1/n)$. Since $f$ is uniform there exists an $x,y \in \mathbb{R}$ such that $|y-x| < \delta$ implies that $|f(y) - f(x)| < \epsilon$
+
+Let $|y-x| < \delta$ for every $\epsilon > 0$. Further let $y = x + 1/n$.   
+
+$$
+\begin{aligned}
+|y - x| < \delta  &\Rightarrow |f(y) - f(x)| < \epsilon \\
+|x + \frac{1}{n} - x| < \delta & \Rightarrow |f(1+\frac{1}{n}) - f(x)| < \epsilon \\
+|x + \frac{1}{n} - x| < \delta & \Rightarrow |f_n(x) - f(x)| < \epsilon \\
+\end{aligned}
+$$
+Thus $(f_n) \to f$ uniformly. 
+
+$$
+f(1 + 1/n) = f_n(x) \\
+(x+1/n)^3 = f_n(x)
+$$
 \end{solution}
 
 
@@ -188,11 +206,11 @@ $$
 a) find the point on $\mathbb{R}$ where each $f_n(x)$ attains its maximum and minimum value. Use this to prove $(f_n)$ converges uniformly on $\mathbb{R}$. What is the limit function?
 
 \begin{solution}
-A function will attain its maximum and minumum values when $f_n' = 0$. 
+A function will attain its maximum and minimum values when $f_n' = 0$. 
 $$
 f_n' = \frac{(1+nx^2)(1) - (x)(2nx)}{(1+nx^2)^2} = \frac{1-nx^2}{(1+nx^2)^2} 
 $$
-Now to obtain the points where each $f_n$ reachs a maximum and minimum let $f_n' = 0$.
+Now to obtain the points where each $f_n$ reaches a maximum and minimum let $f_n' = 0$.
 
 $$
 \begin{aligned}
@@ -202,19 +220,43 @@ x^2 &= 1/n \\
 x &= \pm \sqrt{1/n}
 \end{aligned}
 $$
-If $f'_n(0) = \mathbb{R}^-$. If $f'_n(a) = \mathbb{R}^+$, where $-\sqrt{1/n} < a < \sqrt{1/n} $. 
-Thus $(f_n)$ attains a minimum when $a = -\sqrt{1/n}$ and a maximum when $a = \sqrt{1/n}$. \\
 
-As $n$ gets large, then $f_n$ will attain maximums and minimums when $a$ is close to 0. However, as $a$ gets closer 0, then $f_n(a)$ also gets closer to 0. \\
+The derivative obtains negative values when left of $-\sqrt{1/n}$ and to the right of $\sqrt{1/n}$. The derivative obtains positive values between $-\sqrt{1/n}$ and $\sqrt{1/n}$.Thus $(f_n)$ attains a minimum when $a = -\sqrt{1/n}$ and a maximum when $b = \sqrt{1/n}$. \\
 
-This means that the sequence functions are being bounded by 0, $0 < f_n(x) < 0$. Thus we see that for any given $\epsilon > 0$ it is always possible to find an $N$ such that $|f_n(x) - 0| < \epsilon$, and $(f_n) \to 0$ uniformly.       
+Also, note that the value of the maximum or minimum is 
+$$
+\left| f_n \left( \frac{1}{\sqrt{n}} \right) \right| = \left| \frac{\frac{1}{\sqrt{n}}}{1+n\frac{1}{\sqrt{n}^2}} \right| = \left| \frac{1}{2\sqrt{n}} \right|. 
+$$
+
+As $n$ gets large, then $a$ and $b$ get closer to 0. However, as $a,b$ gets closer 0, then $f_n (a), f_n (b)$ also gets closer to 0. This means that the sequence of functions are converging to 0. \\
+
+To prove that the function is uniformly converging to 0, let $\epsilon > 0$ and $n > N > \frac{1}{4\epsilon^2}$. 
+
+$$
+\begin{aligned}
+n &> \frac{1}{4\epsilon^2} \\
+\frac{1}{2\sqrt{n}} &< \epsilon \\
+\left| \frac{x}{1 + nx^2} \right| < \left| \frac{1}{2\sqrt{n}} \right| &< |\epsilon| \\
+\left| \frac{x}{1 + nx^2} - 0 \right| &< |\epsilon| \\
+\end{aligned}
+$$
+Thus $(f_n) \to 0$ uniformly. 
 \end{solution}
 
+\newpage
 
 b) Let $f = \lim f_n$. Compute $f'_n(x)$ and find all the values of $x$ for which $f'(x) = \lim f'_n(x)$.
 
 \begin{solution}
-x<1
+Let $f = \lim f_n = 0$. 
+
+$$
+f'_n(x) = \frac{1-nx^2}{(1+nx^2)^2} = \frac{1-nx^2}{(1+2nx^2 + 2n^2x^4)}   
+$$
+$$
+\lim f'_n(x) = \lim \frac{1-nx^2}{(1+2nx^2 + 2n^2x^4)} = \lim \frac{x^2}{(2x^2 + 4nx^4)} = 0
+$$
+The derivative of the sequene function will converge to 0 for an $x$ for which the function is defined. 
 \end{solution}
 
 
@@ -226,7 +268,6 @@ x<1
 \exercise{6.3.4}
 
 Let
-
 $$
 h_n(x) = \frac{\sin(nx)}{\sqrt{n}}
 $$
@@ -234,30 +275,31 @@ Show that $h_n \to 0$ uniformly on $\mathbb{R}$ but that the sequence of derivat
 
 
 \begin{solution}
-Let $\epsilon > 0$. 
-$$
-\begin{aligned}
-\left| \frac{\sin(nx)}{\sqrt{n}} - 0 \right| &< \epsilon \\
-\frac{\sqrt{n}}{\sin(nx)} &> \frac{1}{\epsilon} \\
-\sqrt{n} &> \frac{\sin(nx)}{\epsilon} \\
-n &> \left(\frac{\sin(nx)}{\epsilon} \right)^2 \\
-\end{aligned}
-$$
-Since $\sin(nx)$ is bounded between -1 and 1, it is logical that there must exist an $N>\left(\frac{1}{\epsilon} \right)^2$. \\
-
-To prove that it converges uniformly it must be shown that whenever $n > N > \left(\frac{1}{\epsilon} \right)^2$ then $|h_n(x) - h(x) | < \epsilon$.
+To prove that $h_n$ converges uniformly it must be shown that whenever $n > N > \left(\frac{1}{\epsilon} \right)^2$ then $|h_n(x) - h(x) | < \epsilon$.
 
 $$
 \begin{aligned}
 n &> \left(\frac{1}{\epsilon} \right)^2 \\
-n &> \left(\frac{\sin(nx)}{\epsilon} \right)^2 \\
-\sqrt{n} &> \frac{\sin(nx)}{\epsilon} \\
-\frac{\sqrt{n}}{\sin(nx)} &> \frac{1}{\epsilon} \\
+n &> \left(\frac{1}{\epsilon} \right)^2 \ge \left(\frac{\sin(nx)}{\epsilon} \right)^2 \\
+\sqrt{n} &>  \frac{|\sin(nx)|}{\epsilon}  \\
+\frac{\sqrt{n}}{|\sin(nx)|} &> \frac{1}{\epsilon} \\
 \left| \frac{\sin(nx)}{\sqrt{n}} - 0 \right| &< \epsilon 
 \end{aligned}
 $$
-Thus $(h_n) \to f$ uniformly
+Thus $(h_n) \to 0$ uniformly.
 
+The derivative of $(h_n)$ is the equal to the following,
+$$
+h'_n(x) = \frac{n\cos(nx)}{\sqrt{n}}
+$$
+Now we will see that limit of $(h'_n)$ diverges for all $x \in \mathbb{R}$. 
+
+$$
+\lim_{n \to \infty} \frac{n\cos(nx)}{\sqrt{n}} = \lim_{n \to \infty} \sqrt{n}\cos(nx) = \infty
+$$
+This is true because $\cos(nx)$ is bounded by $[-1,1]$, but $\sqrt{n}$ will grow. If $nx$ is a multiple of $\pi/2, 3\pi/2$ then $\cos(nx) = 0$, however $nx$ is never always a multiple of $\pi/2, 3\pi/2$. The function will then oscillate in those cases, but this is also diverging.  \\
+
+Therefore as $n \to \infty$, then $(h'_n) \to \infty$.    
 \end{solution}
 
 
@@ -287,38 +329,37 @@ Since $g(x) = x/2$, then $g'(x) = 1/2$.
 b) Compute $g'(x)$ for each $n \in \mathbb{N}$ and show that the sequence of derivatives $(g'_n)$ converges uniformly on every interval $[-M,M]$. Use Theorem 6.3.3 to conclude $g'(x) = \lim g'(x)$.
 
 \begin{solution}
-To take the derivative, the quotient rule will be applied.
 
 $$
-\frac{d}{dx} \left[ \frac{nx + x^2}{2n} \right] = \frac{2n(n) - (nx + x^2)(0)}{4n^2} = \frac{2n^2}{4n^2} = \frac{1}{2} 
+\frac{d}{dx} \left[ \frac{nx + x^2}{2n} \right] = \frac{1}{2n} \cdot \frac{d}{dx} \left[nx + x^2   \right] = \frac{n + 2x}{2n}
 $$
-No limit is necessary at the end of the derivative, but we see that limit of $\lim g'_n(x) = 1/2 = g'(x)$.  
-\end{solution}
 
-
-c) Repeat parts (a) and (b) for the sequence $f_n(x) = (nx^2 + 1)/(2n + x)$.
-
-\begin{solution}
-First I will find the limit of $(f_n)$
-
-$$
-\lim \frac{nx^2 + 1}{2n + x} = \lim \frac{x^2}{2} = \frac{x^2}{2}
-$$
-Since $f(x) = x^2/2$, then $f'(x) = x$. Now I will find $f'_n(x)$.
+Now I will show that $(f'_n) \to 1/2$ uniformly on the closed interval $[-M,M]$. Let $n > N > |M|/\epsilon$.
 
 $$
 \begin{aligned}
-f'_n(x) = \frac{d}{dx} \left[ \frac{nx^2 + 1}{2n + x}  \right] &= \frac{(2n+x)(2nx) - (nx^2+1)(1)}{(2n+x)^2} \\
-&= \frac{4xn^2 + 2nx^2 - nx^2 - 1}{4n^2 + 4nx + x^2} \\
-&= \frac{4xn^2 + nx^2 - 1}{4n^2 + 4nx + x^2} 
+n &> \frac{|M|}{\epsilon} \\
+\left| \frac{M}{n}\right| &< \epsilon \\
+\left| \frac{x}{n} \right| \le \left| \frac{M}{n}\right| &< \epsilon \\
+\left| \frac{n+ 2x - n}{2n} \right| &< \epsilon \\
+\left| \frac{n+ 2x}{2n} - \frac{n}{2n} \right| &< \epsilon \\
+\left| \frac{n+ 2x}{2n} - \frac{1}{2} \right| &< \epsilon \\
 \end{aligned}
 $$
-Now I can take a limit of $f'_n(x)$ to find $f'(x)$. 
+Thus $(g'_n) \to 1/2$ uniformly on the closed interval $[0M,M]$. 
+
+Now assume a point $x_0$ such that $x_0 \in [-M,M]$. Below we see that if we fix $x$ at the point $x_0$ the sequence of function is still uniformly convergent.
 
 $$
-\lim \frac{4xn^2 + nx^2 - 1}{4n^2 + 4nx + x^2}  = \lim \frac{8xn + x^2}{8n + 4x} = \lim \frac{8x}{8} = x
+\begin{aligned}
+n &> \frac{|M|}{\epsilon} \\
+\left| \frac{x_0}{n} \right| \le \left| \frac{M}{n}\right| &< \epsilon \\
+\left| \frac{n+ 2x - n}{2n} \right| &< \epsilon \\
+\left| \frac{n+ 2x_0}{2n} - \frac{1}{2} \right| &< \epsilon \\
+\end{aligned}
 $$
+Theorem 6.3.3 can now apply because $(f_n)$ is differentiable, defined on the closed interval $[-M,M]$ and $(g'_n)$ was proven to be converging uniformly. Also, there exists a point $x_0 \in [-M,M]$ for which $g_n(x_0$ is convergent. \\
 
-We see that both methods produce the same derivative.
-
+Thus by the theorem 6.3.3, $g$ is differentiable. Therefore $g' = 1/2$ and $\lim g'_n(x) = 1/2$, which implies $(g'_n) \to g'$.
 \end{solution}
+
