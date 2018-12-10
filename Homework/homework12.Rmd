@@ -1,0 +1,168 @@
+---
+title: "HW #12"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+author: "Jacob Jashinsky"
+class: "Math 461"
+hours: "2.5 Hours"
+section: "01"
+professor: "Lawrence Chilton"
+due: "`r format(Sys.time(), '%B %d, %Y')`"
+topic: "6.4.2a, 6.4.3, 6.4.5"
+misc: "6.5.1, 6.5.3, 6.5.8"
+title-page: false
+output: HomeworkBYUI::real_analysis_pdf
+---
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 01 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{6.4.2a} 
+
+Decide whether the proposition is true or false, provide a short justification or counter example as appropriate.
+
+If $\sum ^\infty _{n=1} g_n$ converges uniformly, then $(g_n)$ converges uniformly to zero. 
+
+\begin{solution}
+True. The sum of a sequence that does not converge to zero would diverge. 
+\end{solution}
+
+
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 02 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{6.4.3}
+
+a) Show that 
+$$
+g(x) = \sum ^\infty _{n=0} \frac{\cos(2^nx)}{2^n}
+$$
+is continuous on all $\mathbb{R}$.
+
+\begin{solution}
+Consider the sequence $1/2^n$. Since $cos(x)$ is bounded by 1 it can be said that $\left| \frac{\cos(2^nx)}{2^n} \right| \le \frac{1}{2^n}$ for all $x \in \mathbb{R}$. \\
+
+Also note that series $\sum^\infty_{n=0} 1/2^n$ is geometric and conveges. Weierstrass M-Test now applies, therefore, $\sum ^\infty _{n=0} \frac{\cos(2^nx)}{2^n}$ converges uniformly on $\mathbb{R}$. \\
+
+Now theorem 6.4.2 states that since $g_n$ is continuous and the series converges uniformly, then $g(x)$ is continuous on its domain. 
+\end{solution}
+
+
+b) The function $g$ was cited in section 5.4 as an example of a continuous nowhere differentiable function. What happens if we try to use Theorem 6.4.3 to explore whether $g$ is differentiable? 
+
+\begin{solution}
+The assumptions are not met. The sum of the sequence $f'_n(x) = -\sin(2^nx)$ does not converge, therefore the theorem cannot apply. 
+\end{solution}
+
+
+\newpage
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 03 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{6.4.5}
+
+a) Prove that 
+$$
+h(x) = \sum ^\infty _{n=1} \frac{x^n}{n^2} = x + \frac{x^2}{4} + \frac{x^3}{9} + ...
+$$
+is continuous on $[-1,1]$
+
+\begin{solution}
+Consider the sequence $1/n^2$. Since the domain of $h_n$ is bounded above by 1, it can be said that $\left| \frac{x^n}{n^2} \right| \le \frac{1}{2^n}$ for all $x \in [-1,1]$. \\
+
+Also note that series $\sum^\infty_{n=0} 1/n^2$ is P-series and conveges. Weierstrass M-Test now applies, therefore, $\sum ^\infty _{n=0} \frac{x^n}{n^2}$ converges uniformly on $[-1,1]$. \\
+
+Now theorem 6.4.2 states that since $h_n$ is continuous and the series converges uniformly, then $h(x)$ is continuous on its domain. 
+\end{solution}
+
+
+b) The series 
+$$
+f(x) = \sum ^\infty _{n=1} \frac{x^n}{n} = x + \frac{x^2}{2} + \frac{x^3}{3} + ...
+$$
+converges for every $x$ in the half-open interval $[-1,1)$ but does not converge when $x=1$. For a fixed $x_0 \in (-1,1)$, explain how we can still use the Weierstrass M-test to prove that $f$ is continuous at $x_0$.
+
+
+\begin{solution}
+Since we know that the series conveges for the half-open interval this can be our $M_n$. For every $x_0 \in (-1,1)$, choose a point $c \in [-1,1)$ such that that $\left| \frac{x_0^n}{n} \right| \le \frac{c^n}{n}$. The sum of the sequence $M_n$ will converge, implying that $\sum  f_n(x_0)$ converges uniformly. \\
+
+Theorem 6.4.2 can then be leveraged to show that since it converges uniformly it is also continuous on the appropriate domain. 
+\end{solution}
+
+
+\newpage
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 04 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{6.5.1}
+
+Consider the function $g$ defined by the power series 
+$$
+g(x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + ...
+$$
+a) Is $g$ defined on $(-1,1)$? Is it continuous on this set? Is $g$ defined on $(-1,1]$? Is it continuous on this set? What happens on $[-1,1]$? Can the power series for $g(x)$ possibly converge for an other points $|x| > 1$? Explain.
+
+\begin{solution}
+The power series is defined on the set $(-1,1)$. Choose an $|x_0| < 1$. The power series now becomes an alternating series. The sequence is strictly decreasing and converges to 0, therefore the power series converges when $x=x_0$. \\
+
+Theorem 6.5.1 states that since the power series converges at a some point $x_0$, then it converges absolutely for every $|x| < |x_0|$. Theorem 6.5.2 can now be applied which implies that the power series at point $x_0$ converges uniformly on the closed interval $[-|x_0|, |x_0|]$. Because the power series is uniformly convergent it is also coninuous on the interval $(-1,1)$. \\
+
+The power series is also defined on all real numbers. The same arguments can be applied to all intervals greater than $(-1,1)$.  
+\end{solution}
+
+
+b) For what values of $x$ is $g'(x)$ defined? Find a formula for $g'$.
+
+\begin{solution}
+x<1
+\end{solution}
+
+
+\newpage
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 05 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{6.5.3}
+
+Use the Weierstrass M-Test to prove Theorem 6.5.2
+
+\begin{solution}
+Theorem 6.5.2: If a power series $\sum^\infty _{n=0} a_nx^n$ converges absolutely at a point $x_0$, then it converges uniformly on the closed interval $[-c,c]$, where $c=|x_0|$.
+
+Let $M_n = a_n|x_0|^n$ be a converging series. Choose a point $x_0$ and a point $|c| \le |x_0|$, and note that 
+$$
+\begin{aligned}
+|c| &\le |x_0| \\
+|c|^n &\le |x_0|^n \\
+|a_nc^n| &\le a_n|x_0|^n \\
+|f_n(x)| &\le |M_n|
+\end{aligned}
+$$
+
+The M-Test now applies, therefore, $\sum^\infty _{n=0} a_nx^n$ converges at all points $|c| \le |x_0|$, or in other words, the power series converges on the interval $[-c,c]$.   
+\end{solution}
+
+
+
+\newpage
+<!------------------------------------------------------------------------------>
+<!------------------------------- Question 06 ---------------------------------->
+<!------------------------------------------------------------------------------>
+\exercise{6.5.8}
+
+a) Show that the power series representations are unique. If we have 
+$$
+\sum ^\infty _{n=0} a_nx^n = \sum ^\infty _{n=0} b_nx^n
+$$
+for all $x$ in an interval $(-\mathbb{R}, \mathbb{R})$, prove that $a_n = b_n$ for all $n=0,1,2,...$
+
+\begin{solution}
+x<1
+\end{solution}
+
+
+b) Let $f(x) = \sum^\infty _{n=0} a_nx^n$ converge on $(-\mathbb{R}, \mathbb{R})$, and assume $f'(x) = f(x)$ for all $x \in (-\mathbb{R}, \mathbb{R})$ and $f(0) = 1$. Deduce the values of $a_n$.
+
+
+\begin{solution}
+x<1
+\end{solution}
+
