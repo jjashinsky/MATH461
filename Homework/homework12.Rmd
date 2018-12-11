@@ -22,7 +22,16 @@ Decide whether the proposition is true or false, provide a short justification o
 If $\sum ^\infty _{n=1} g_n$ converges uniformly, then $(g_n)$ converges uniformly to zero. 
 
 \begin{solution}
-True. The sum of a sequence that does not converge to zero would diverge. 
+True. Since $\sum ^\infty _{n=1} g_n = g$, then it must be true that $\sum ^\infty _{n=1} g_{(n+1)} = g$. It follows that 
+$$
+\begin{aligned}
+g-g &= 0 \\
+\sum ^\infty _{n=1}g_{m} - \sum ^\infty _{n=1} g_n &= 0 \\
+\lim_{n \to \infty} \left( g_{m} + g_{m-1} + g_{m-2} + .. + g_{n+1} + \sum ^n _{m=1}g_n - \sum ^n _{n=1} g_n \right) &= 0 \\
+\lim_{n \to \infty} (g_{m} + g_{m-1} + g_{m-2} + .. + g_{n+1}) &= 0
+\end{aligned}
+$$
+Clearly $(g_n)$ converges to 0, and the Cauchy Criterion for uniform convergence can be used to show that it converges uniformly. The expression above shows that there exists an $N=n$ such that $|f_n - f_m| < \epsilon$. 
 \end{solution}
 
 
@@ -101,18 +110,30 @@ $$
 a) Is $g$ defined on $(-1,1)$? Is it continuous on this set? Is $g$ defined on $(-1,1]$? Is it continuous on this set? What happens on $[-1,1]$? Can the power series for $g(x)$ possibly converge for an other points $|x| > 1$? Explain.
 
 \begin{solution}
-The power series is defined on the set $(-1,1)$. Choose an $|x_0| < 1$. The power series now becomes an alternating series. The sequence is strictly decreasing and converges to 0, therefore the power series converges when $x=x_0$. \\
+$g$ is defined on $(-1,1)$. To show that it is continuous on the open interval it must be shown where the power series converges. \\
 
-Theorem 6.5.1 states that since the power series converges at a some point $x_0$, then it converges absolutely for every $|x| < |x_0|$. Theorem 6.5.2 can now be applied which implies that the power series at point $x_0$ converges uniformly on the closed interval $[-|x_0|, |x_0|]$. Because the power series is uniformly convergent it is also coninuous on the interval $(-1,1)$. \\
+The ratio test shows that,
+$$
+\begin{aligned}
+\lim \left| \frac{\frac{x^{n+1}}{(n+1)}}{\frac{x^n}{n}} \right| &< 1 \\
+\lim \left| \frac{nx}{n+1} \right| &< 1 \\
+|x| &< 1
+\end{aligned}
+$$
+The power series converges on the open interval $(-1,1)$. Theorem 6.5.7 now implies that $g$ is continuous on the same interval. \\
 
-The power series is also defined on all real numbers. The same arguments can be applied to all intervals greater than $(-1,1)$.  
+The ppwer series is define on $(-1,1]$. It is also convergent on the uniform because $g_n(1)$ is a alternating series and converges by the alternating series test. Therefore, theroem 6.5.7 once again states that the power series is continuous on the the interval $(-1,1]$. \\
+
+The same cannot be said about $[-1,1]$. $g_n(-1)$ is not longer alternating and is a harmonic series. Therefore it will not converge and will not be continuous as $-1$. \\
+
+The greatest value for which the power series will converge is 1. It will not converge for any value greater because the ratio test has shown that any value greater than its boundary points will diverge.  
 \end{solution}
 
 
 b) For what values of $x$ is $g'(x)$ defined? Find a formula for $g'$.
 
 \begin{solution}
-x<1
+$g'(x)$ is defined for all values, where $g'(x) = \sum_{n=1}^\infty x^{n-1}$. 
 \end{solution}
 
 
@@ -152,17 +173,38 @@ a) Show that the power series representations are unique. If we have
 $$
 \sum ^\infty _{n=0} a_nx^n = \sum ^\infty _{n=0} b_nx^n
 $$
-for all $x$ in an interval $(-\mathbb{R}, \mathbb{R})$, prove that $a_n = b_n$ for all $n=0,1,2,...$
+for all $x$ in an interval $(-R, R)$, prove that $a_n = b_n$ for all $n=0,1,2,...$
 
 \begin{solution}
-x<1
+By way of contradiction, assume that $a_n \ne b_n$, but $\sum ^\infty _{n=0} a_nx^n = \sum ^\infty _{n=0} b_nx^n$. 
+
+It follows that,
+$$
+\begin{aligned}
+\sum ^\infty _{n=0} a_nx^n - \sum ^\infty _{n=0} b_nx^n &= 0 \\
+\sum ^\infty _{n=0} (a_nx^n - b_nx^n) &= 0 \\
+\sum ^\infty _{n=0} ((a_n - b_n)x^n) &= 0 \\
+\end{aligned}
+$$
+The only way for the sum to equal to 0 is for $(a_n - b_n) = 0$. This to the conclusion that $a_n = b_n$. Thus the contradiction leads us to believe that power series representations are unique.  
 \end{solution}
 
 
-b) Let $f(x) = \sum^\infty _{n=0} a_nx^n$ converge on $(-\mathbb{R}, \mathbb{R})$, and assume $f'(x) = f(x)$ for all $x \in (-\mathbb{R}, \mathbb{R})$ and $f(0) = 1$. Deduce the values of $a_n$.
+b) Let $f(x) = \sum^\infty _{n=0} a_nx^n$ converge on $(-R, R)$, and assume $f'(x) = f(x)$ for all $x \in (-R, R)$ and $f(0) = 1$. Deduce the values of $a_n$.
 
 
 \begin{solution}
-x<1
+Let 
+$$
+f_n(x) = 1 + \frac{x}{1} + \frac{x^2}{2} + \frac{x^3}{6} + \frac{x^4}{24} + \frac{x^5}{120} + ...
+$$
+ note that the derivative is equal to the following,
+
+$$
+f_n(x) = 1 + \frac{x}{1} + \frac{x^2}{2} + \frac{x^3}{6} + \frac{x^4}{24} + \frac{x^5}{120} + ... \\
+f_n(x) = 1 + \frac{x}{1} + \frac{x^2}{2} + \frac{x^3}{6} + \frac{x^4}{24} + \frac{x^5}{120} + ... \\
+
+$$
+$a_n = \frac{1}{n!}$
 \end{solution}
 
