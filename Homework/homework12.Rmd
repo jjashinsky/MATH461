@@ -3,7 +3,7 @@ title: "HW #12"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 author: "Jacob Jashinsky"
 class: "Math 461"
-hours: "2.5 Hours"
+hours: "5 Hours"
 section: "01"
 professor: "Lawrence Chilton"
 due: "`r format(Sys.time(), '%B %d, %Y')`"
@@ -31,7 +31,7 @@ g-g &= 0 \\
 \lim_{n \to \infty} (g_{m} + g_{m-1} + g_{m-2} + .. + g_{n+1}) &= 0
 \end{aligned}
 $$
-Clearly $(g_n)$ converges to 0, and the Cauchy Criterion for uniform convergence can be used to show that it converges uniformly. The expression above shows that there exists an $N=n$ such that $|f_n - f_m| < \epsilon$. 
+Clearly $(g_n)$ converges to 0, and the Cauchy Criterion for uniform convergence can be used to show that it converges uniformly. The expression above shows that there exists an $N$ such that $N \le n , m$ implies $|f_n - f_m| < \epsilon$. 
 \end{solution}
 
 
@@ -49,7 +49,7 @@ is continuous on all $\mathbb{R}$.
 \begin{solution}
 Consider the sequence $1/2^n$. Since $cos(x)$ is bounded by 1 it can be said that $\left| \frac{\cos(2^nx)}{2^n} \right| \le \frac{1}{2^n}$ for all $x \in \mathbb{R}$. \\
 
-Also note that series $\sum^\infty_{n=0} 1/2^n$ is geometric and conveges. Weierstrass M-Test now applies, therefore, $\sum ^\infty _{n=0} \frac{\cos(2^nx)}{2^n}$ converges uniformly on $\mathbb{R}$. \\
+Also note that series $\sum^\infty_{n=0} 1/2^n$ is geometric and converges. Weierstrass M-Test now applies, therefore, $\sum ^\infty _{n=0} \frac{\cos(2^nx)}{2^n}$ converges uniformly on $\mathbb{R}$. \\
 
 Now theorem 6.4.2 states that since $g_n$ is continuous and the series converges uniformly, then $g(x)$ is continuous on its domain. 
 \end{solution}
@@ -77,7 +77,7 @@ is continuous on $[-1,1]$
 \begin{solution}
 Consider the sequence $1/n^2$. Since the domain of $h_n$ is bounded above by 1, it can be said that $\left| \frac{x^n}{n^2} \right| \le \frac{1}{2^n}$ for all $x \in [-1,1]$. \\
 
-Also note that series $\sum^\infty_{n=0} 1/n^2$ is P-series and conveges. Weierstrass M-Test now applies, therefore, $\sum ^\infty _{n=0} \frac{x^n}{n^2}$ converges uniformly on $[-1,1]$. \\
+Also note that series $\sum^\infty_{n=0} 1/n^2$ is P-series and converges. Weierstrass M-Test now applies, therefore, $\sum ^\infty _{n=0} \frac{x^n}{n^2}$ converges uniformly on $[-1,1]$. \\
 
 Now theorem 6.4.2 states that since $h_n$ is continuous and the series converges uniformly, then $h(x)$ is continuous on its domain. 
 \end{solution}
@@ -91,7 +91,7 @@ converges for every $x$ in the half-open interval $[-1,1)$ but does not converge
 
 
 \begin{solution}
-Since we know that the series conveges for the half-open interval this can be our $M_n$. For every $x_0 \in (-1,1)$, choose a point $c \in [-1,1)$ such that that $\left| \frac{x_0^n}{n} \right| \le \frac{c^n}{n}$. The sum of the sequence $M_n$ will converge, implying that $\sum  f_n(x_0)$ converges uniformly. \\
+Since we know that the series converges for the half-open interval this can be our $M_n$. For every $x_0 \in (-1,1)$, choose a point $c \in [-1,1)$ such that that $\left| \frac{x_0^n}{n} \right| \le \frac{c^n}{n}$. The sum of the sequence $M_n$ will converge, implying that $\sum  f_n(x_0)$ converges uniformly. \\
 
 Theorem 6.4.2 can then be leveraged to show that since it converges uniformly it is also continuous on the appropriate domain. 
 \end{solution}
@@ -122,7 +122,7 @@ $$
 $$
 The power series converges on the open interval $(-1,1)$. Theorem 6.5.7 now implies that $g$ is continuous on the same interval. \\
 
-The ppwer series is define on $(-1,1]$. It is also convergent on the uniform because $g_n(1)$ is a alternating series and converges by the alternating series test. Therefore, theroem 6.5.7 once again states that the power series is continuous on the the interval $(-1,1]$. \\
+The power series is define on $(-1,1]$. It is also convergent on the uniform because $g_n(1)$ is a alternating series and converges by the alternating series test. Therefore, theorem 6.5.7 once again states that the power series is continuous on the the interval $(-1,1]$. \\
 
 The same cannot be said about $[-1,1]$. $g_n(-1)$ is not longer alternating and is a harmonic series. Therefore it will not converge and will not be continuous as $-1$. \\
 
@@ -153,7 +153,7 @@ $$
 \begin{aligned}
 |c| &\le |x_0| \\
 |c|^n &\le |x_0|^n \\
-|a_nc^n| &\le a_n|x_0|^n \\
+|a_nc^n| &\le |a_nx_0|^n \\
 |f_n(x)| &\le |M_n|
 \end{aligned}
 $$
@@ -176,7 +176,7 @@ $$
 for all $x$ in an interval $(-R, R)$, prove that $a_n = b_n$ for all $n=0,1,2,...$
 
 \begin{solution}
-By way of contradiction, assume that $a_n \ne b_n$, but $\sum ^\infty _{n=0} a_nx^n = \sum ^\infty _{n=0} b_nx^n$. 
+For a direct proof assume $\sum ^\infty _{n=0} a_nx^n = \sum ^\infty _{n=0} b_nx^n$. 
 
 It follows that,
 $$
@@ -186,7 +186,9 @@ $$
 \sum ^\infty _{n=0} ((a_n - b_n)x^n) &= 0 \\
 \end{aligned}
 $$
-The only way for the sum to equal to 0 is for $(a_n - b_n) = 0$. This to the conclusion that $a_n = b_n$. Thus the contradiction leads us to believe that power series representations are unique.  
+Note that the left is a power series, and it is being equated to $P_0$.  The only way the power series can exactly represent $P_0$ for all $x \in \mathbb{R}$ is if $(a_n - b_n)=0$. \\
+
+This to the conclusion that $a_n = b_n$, and that power series representations are unique.  
 \end{solution}
 
 
@@ -196,15 +198,17 @@ b) Let $f(x) = \sum^\infty _{n=0} a_nx^n$ converge on $(-R, R)$, and assume $f'(
 \begin{solution}
 Let 
 $$
-f_n(x) = 1 + \frac{x}{1} + \frac{x^2}{2} + \frac{x^3}{6} + \frac{x^4}{24} + \frac{x^5}{120} + ...
+f_n(x) = 1 + \frac{x}{1} + \frac{x^2}{2} + \frac{x^3}{6} + \frac{x^4}{24} + \frac{x^5}{120} + \frac{x^6}{720} + ...
 $$
- note that the derivative is equal to the following,
+
+note that the derivative is equal to the following,
 
 $$
-f_n(x) = 1 + \frac{x}{1} + \frac{x^2}{2} + \frac{x^3}{6} + \frac{x^4}{24} + \frac{x^5}{120} + ... \\
-f_n(x) = 1 + \frac{x}{1} + \frac{x^2}{2} + \frac{x^3}{6} + \frac{x^4}{24} + \frac{x^5}{120} + ... \\
-
+f'_n(x) = 1 + \frac{x}{1} + \frac{x^2}{2} + \frac{x^3}{6} + \frac{x^4}{24} + \frac{x^5}{120} + ... \\
 $$
-$a_n = \frac{1}{n!}$
+
+It is also true that $f(0) = 1$. \\
+
+We can conclude that $a_n = \frac{1}{n!}$
 \end{solution}
 
