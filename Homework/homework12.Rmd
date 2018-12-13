@@ -3,7 +3,7 @@ title: "HW #12"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 author: "Jacob Jashinsky"
 class: "Math 461"
-hours: "5 Hours"
+hours: "6 Hours"
 section: "01"
 professor: "Lawrence Chilton"
 due: "`r format(Sys.time(), '%B %d, %Y')`"
@@ -22,7 +22,7 @@ Decide whether the proposition is true or false, provide a short justification o
 If $\sum ^\infty _{n=1} g_n$ converges uniformly, then $(g_n)$ converges uniformly to zero. 
 
 \begin{solution}
-True. Since $\sum ^\infty _{n=1} g_n = g$, then it must be true that $\sum ^\infty _{n=1} g_{(n+1)} = g$. It follows that 
+True. Since $\sum ^\infty _{n=1} g_n = g$, then it must be true that $\sum ^\infty _{m=1} g_{(m)} = g$. It follows that 
 $$
 \begin{aligned}
 g-g &= 0 \\
@@ -31,7 +31,7 @@ g-g &= 0 \\
 \lim_{n \to \infty} (g_{m} + g_{m-1} + g_{m-2} + .. + g_{n+1}) &= 0
 \end{aligned}
 $$
-Clearly $(g_n)$ converges to 0, and the Cauchy Criterion for uniform convergence can be used to show that it converges uniformly. The expression above shows that there exists an $N$ such that $N \le n , m$ implies $|f_n - f_m| < \epsilon$. 
+Clearly $(g_n)$ converges to 0, and the Cauchy Criterion for uniform convergence can be used to show that it converges uniformly. The expression above shows that there exists an $N$ such that $N \le n , m$ implies $|g_m - g_n| < \epsilon$. 
 \end{solution}
 
 
@@ -47,7 +47,7 @@ $$
 is continuous on all $\mathbb{R}$.
 
 \begin{solution}
-Consider the sequence $1/2^n$. Since $cos(x)$ is bounded by 1 it can be said that $\left| \frac{\cos(2^nx)}{2^n} \right| \le \frac{1}{2^n}$ for all $x \in \mathbb{R}$. \\
+Consider the sequence $1/2^n$. Since $\cos(x)$ is bounded by 1 it can be said that $\left| \frac{\cos(2^nx)}{2^n} \right| \le \frac{1}{2^n}$ for all $x \in \mathbb{R}$. \\
 
 Also note that series $\sum^\infty_{n=0} 1/2^n$ is geometric and converges. Weierstrass M-Test now applies, therefore, $\sum ^\infty _{n=0} \frac{\cos(2^nx)}{2^n}$ converges uniformly on $\mathbb{R}$. \\
 
@@ -91,9 +91,9 @@ converges for every $x$ in the half-open interval $[-1,1)$ but does not converge
 
 
 \begin{solution}
-Since we know that the series converges for the half-open interval this can be our $M_n$. For every $x_0 \in (-1,1)$, choose a point $c \in [-1,1)$ such that that $\left| \frac{x_0^n}{n} \right| \le \frac{c^n}{n}$. The sum of the sequence $M_n$ will converge, implying that $\sum  f_n(x_0)$ converges uniformly. \\
+Since we know that the series converges for the half-open interval this can be our $M_n$. Chose an $x_0 \in (-1,1)$, choose a point $|c| \in [-1,1)$ such that $M_n = \frac{|c|^n}{n}$ and that $\left| \frac{x_0^n}{n} \right| \le \frac{|c|^n}{n}$. The sum of the sequence $M_n$ will converge, implying that $\sum  f_n(x_0)$ converges uniformly. \\
 
-Theorem 6.4.2 can then be leveraged to show that since it converges uniformly it is also continuous on the appropriate domain. 
+Theorem 6.4.2 can then be leveraged to show that since it converges uniformly it is also continuous at $x_0$. 
 \end{solution}
 
 
@@ -110,7 +110,7 @@ $$
 a) Is $g$ defined on $(-1,1)$? Is it continuous on this set? Is $g$ defined on $(-1,1]$? Is it continuous on this set? What happens on $[-1,1]$? Can the power series for $g(x)$ possibly converge for an other points $|x| > 1$? Explain.
 
 \begin{solution}
-$g$ is defined on $(-1,1)$. To show that it is continuous on the open interval it must be shown where the power series converges. \\
+To show that it is defined and continuous on the open interval $(-1,1)$, it must be shown where the power series converges. \\
 
 The ratio test shows that,
 $$
@@ -120,11 +120,11 @@ $$
 |x| &< 1
 \end{aligned}
 $$
-The power series converges on the open interval $(-1,1)$. Theorem 6.5.7 now implies that $g$ is continuous on the same interval. \\
+The power series converges on the open interval $(-1,1)$. Theorem 6.5.7 now implies that $g$ is defined and continuous on the same interval. \\
 
-The power series is define on $(-1,1]$. It is also convergent on the uniform because $g_n(1)$ is a alternating series and converges by the alternating series test. Therefore, theorem 6.5.7 once again states that the power series is continuous on the the interval $(-1,1]$. \\
+It also converges uniformly o nthe half-open interval because $g_n(1)$ is a alternating series and converges by the alternating series test. Therefore, theorem 6.5.7 once again states that the power series is continuous on the the interval $(-1,1]$. \\
 
-The same cannot be said about $[-1,1]$. $g_n(-1)$ is not longer alternating and is a harmonic series. Therefore it will not converge and will not be continuous as $-1$. \\
+The same cannot be said about $[-1,1]$. $g_n(-1)$ is not longer alternating and is a harmonic series. Therefore it will not converge and will not be continuous at $x=-1$. \\
 
 The greatest value for which the power series will converge is 1. It will not converge for any value greater because the ratio test has shown that any value greater than its boundary points will diverge.  
 \end{solution}
@@ -133,7 +133,9 @@ The greatest value for which the power series will converge is 1. It will not co
 b) For what values of $x$ is $g'(x)$ defined? Find a formula for $g'$.
 
 \begin{solution}
-$g'(x)$ is defined for all values, where $g'(x) = \sum_{n=1}^\infty x^{n-1}$. 
+Theorem 6.5.7 also states that $g$ is differentiable on the open interval $(-1,1)$, where $g'(x) = \sum_{n=1}^\infty (-1)^{n+1}x^{n-1}$. \\
+
+However, $g'(1) = (1)^n$ and $g'(-1)=(-1)^{n+1}$ are not converging series, therefore, $g'$ is only defined on the open interval $(-1,1)$.
 \end{solution}
 
 
@@ -146,7 +148,8 @@ $g'(x)$ is defined for all values, where $g'(x) = \sum_{n=1}^\infty x^{n-1}$.
 Use the Weierstrass M-Test to prove Theorem 6.5.2
 
 \begin{solution}
-Theorem 6.5.2: If a power series $\sum^\infty _{n=0} a_nx^n$ converges absolutely at a point $x_0$, then it converges uniformly on the closed interval $[-c,c]$, where $c=|x_0|$.
+Theorem 6.5.2: If a power series $\sum^\infty _{n=0} a_nx^n$ converges absolutely at a point $x_0$, then it converges uniformly on the closed interval $[-c,c]$, where $c=|x_0|$. \\
+
 
 Let $M_n = a_n|x_0|^n$ be a converging series. Choose a point $x_0$ and a point $|c| \le |x_0|$, and note that 
 $$
@@ -154,7 +157,7 @@ $$
 |c| &\le |x_0| \\
 |c|^n &\le |x_0|^n \\
 |a_nc^n| &\le |a_nx_0|^n \\
-|f_n(x)| &\le |M_n|
+|f_n(c)| &\le |M_n|
 \end{aligned}
 $$
 
