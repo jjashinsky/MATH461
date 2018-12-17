@@ -1,0 +1,84 @@
+---
+title: "Memorize List"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+author: "Jacob"
+class: "Math 461"
+hours: "1 Hour"
+section: "01"
+professor: "Lawrence Chilton"
+due: "`r format(Sys.time(), '%B %d, %Y')`"
+topic: "."
+misc: "."
+title-page: false
+output: HomeworkBYUI::real_analysis_pdf
+---
+
+### Axiom of Completeness
+
+Every nonempty set of real numbers that is bounded above had a least upper bound.
+
+### Convergence of a sequence 
+
+$(a_n)$ converges to a real number $a$ if for every $\epsilon>0$ there exists an $n \in \mathbb{N}$ such that whenever $n \ge N$ it follows that $|a_n - a| < \epsilon$.
+
+### Monotone Convergence Theorem
+
+If $a_n$ is monotone and bounded then the sequence converges 
+
+### Convergence of a series
+
+Let $b_n$ be a sequence and the infinite series be defined as $\sum b_n$. Also let the sequence $s_n$
+be defined as the $s_n = b_0 + b_1 + b_2 + ...b_n$. The series converges to $B$ if $(s_n) \to B$. 
+
+### Balzono Weierstrass Theorem
+
+Every bounded sequence contains a convergent subsequence.
+
+### Cauchy sequence 
+
+The sequence $a_n$ is Cauchy if for every $\epsilon > 0$ there exists an $N \in \mathbb{N}$ such that whenever $n,m > N$ implies $|a_n - a_m| < \epsilon$ 
+
+### Heine Borel Theroem 
+
+Let $K$ be a subset of R. If one is satisfied then it implies the others
+i. $K$ is compact
+ii. $K$ is closed an bounded
+iii. Every open cover of $K$ has a finite subcover.
+
+### Def of funciton limit
+
+Let $f: A \to \mathbb{R}$, and $c$ be a limit point of $A$. $\lim_{x \to c} f(x) = L$ if for every $\epsilon > 0$ there exists a $\delta > 0$ such that whenever $0<|x-c| < \delta$ and $x \in A$ implies that $|f(x) - L| < \epsilon$. 
+
+### Continuity at a point
+
+A function $f: A \to \mathbb{R}$ is continuous at a point $c$ if for every $\epsilon > 0$ there exists a $\delta > 0$ such that whenever $|x-c| < \epsilon$ and $x \in A$ implies that $|f(x) - f(c)| < \epsilon$. 
+
+### Extreme value theorem
+
+If $f: K \to \mathbb{R}$ is continuous on $K$ then $f$ attains a maximum and minimum somewhere on the domain.
+
+### Uniform Continuity 
+
+$f: A \to \mathbb{R}$ is uniformly continuous on $A$ if for every $\epsilon > 0$ there exists a $\delta$ such that for all $x,y \in A$, $|x-y| < \delta$ implies that $|f(x) - f(y)| < \epsilon$. 
+
+### Intermediate Value Theorem 
+
+Let $f:[a,b] \to \mathbb{R}$ be continuous. If $L$ is a real number such that $f(a) < L < f(b)$ or $f(b) < L < f(a)$, then there exists a point $c \in [a,b]$ where $f(c) = L$.  
+
+### Derivative at a point
+
+Let $f: A \to \mathbb{R}$ be defined on $A$. Given a point $c \in A$, the derivative of $f$ at $c$ is defined by $g'(c) = \lim_{x \to c} \frac{g(x) - g(c)}{x-c}$, provided that the limit exists.
+
+### Mean Value Theorem 
+
+If $f: [a,b] \to \mathbb{R}$ is continuous on $[a,b]$, and differentiable on $(a,b)$, then there exists a point $c \in (a,b)$ such that $f'(c) = \frac{f(b) - f(a)}{b-a}$. 
+
+### Uniform Convergence of a sequence of functions
+
+Let $(f_n)$ be defined on the set $A \subseteq \mathbb{R}$. Then $f_n$ converges uniformly on $A$ to a limit function $f$ defined on $A$ if for every $\epsilon > 0$ there exists an $N \in \mathbb{N}$ such that whenever $n \ge N$ and $x \in A$ implies that $|f_n(x) - f(x)| < \epsilon$.
+
+### Weierstrass M-Test
+
+For each $n \in \mathbb{N}$, let $f_n$ be a function defined on the set $A \subseteq \mathbb{R}$ and let $M_n > 0$ be a real number satisfying $|f_n(x)| \le M_n$ for all $x \in A$. If $\sum M_n$ converges then $\sum f_n$ converges uniformly on $A$.   
+
+

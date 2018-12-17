@@ -130,7 +130,7 @@ $$
 \end{aligned}
 $$
 
-Since $f$ be defined for all $x \in \mathbb{R}$ the definition of differentiability (5.2.1) states that 
+Since $f$ is defined for all $x \in \mathbb{R}$ the definition of differentiability (5.2.1) states that 
 
 $$
 f'(c) = \lim_{x \to c} \frac{f(x) - f(c)}{x - c}
